@@ -14,6 +14,30 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Type{
+  Man
+  Women
+  Other
+}
+
+enum Ethinicity{
+  White
+ Black
+ Asian_American 
+ East_Asian    
+ South_East_Asian
+ South_Asian      
+ Middle_East    
+ Pacific
+ Hispanic
+}
+
+enum EyeColor{
+  Brown
+  Blue
+  Hazel_Green @map("Hazel Green")
+  Gray
+}
 
 model User {
   id               String    @id @default(cuid())
@@ -26,7 +50,7 @@ model User {
   twoFactorEnabled Boolean   @default(false)
   Session          Session[]
   Account          Account[]
-
+  models            Model[]
   @@unique([email])
   @@map("user")
 }
@@ -77,3 +101,54 @@ model Verification {
   @@map("verification")
 }
 
+model Model{
+  id String @id @default(uuid())
+  userId String
+  name String
+  age Int
+  type Type
+  trigerWord String?
+  tensorPath String?
+  status Status @default(Pending)
+  ethinicity Ethinicity
+  eyeColor EyeColor
+  bold Boolean @default(false)
+  falAiRequest_id String?
+  zipUrl String
+  outputImages OutputImage[]
+  user User @relation(references: [id],fields: [userId])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+enum Status{
+  Pending 
+  Success
+  Failed
+}
+model OutputImage{
+  id String @id @default(uuid())
+  imageUrl String
+  modelId String
+  userId String
+  falAiRequest_id String?
+  prompt String
+  status Status  @default(Pending)
+  model Model @relation(references: [id],fields: [modelId])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+} 
+
+
+model Pack{
+  id String @id 
+  name String
+  packPrompts PackPrompts[]
+}
+model PackPrompts{
+  id String @id
+  prompt String
+  packId String
+  pack  Pack @relation(fields: [packId],references: [id])
+}

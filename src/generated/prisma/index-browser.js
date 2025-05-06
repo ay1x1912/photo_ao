@@ -168,6 +168,47 @@ exports.Prisma.VerificationScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ModelScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  name: 'name',
+  age: 'age',
+  type: 'type',
+  trigerWord: 'trigerWord',
+  tensorPath: 'tensorPath',
+  status: 'status',
+  ethinicity: 'ethinicity',
+  eyeColor: 'eyeColor',
+  bold: 'bold',
+  falAiRequest_id: 'falAiRequest_id',
+  zipUrl: 'zipUrl',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.OutputImageScalarFieldEnum = {
+  id: 'id',
+  imageUrl: 'imageUrl',
+  modelId: 'modelId',
+  userId: 'userId',
+  falAiRequest_id: 'falAiRequest_id',
+  prompt: 'prompt',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PackScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+};
+
+exports.Prisma.PackPromptsScalarFieldEnum = {
+  id: 'id',
+  prompt: 'prompt',
+  packId: 'packId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -182,13 +223,46 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.Type = exports.$Enums.Type = {
+  Man: 'Man',
+  Women: 'Women',
+  Other: 'Other'
+};
 
+exports.Status = exports.$Enums.Status = {
+  Pending: 'Pending',
+  Success: 'Success',
+  Failed: 'Failed'
+};
+
+exports.Ethinicity = exports.$Enums.Ethinicity = {
+  White: 'White',
+  Black: 'Black',
+  Asian_American: 'Asian_American',
+  East_Asian: 'East_Asian',
+  South_East_Asian: 'South_East_Asian',
+  South_Asian: 'South_Asian',
+  Middle_East: 'Middle_East',
+  Pacific: 'Pacific',
+  Hispanic: 'Hispanic'
+};
+
+exports.EyeColor = exports.$Enums.EyeColor = {
+  Brown: 'Brown',
+  Blue: 'Blue',
+  Hazel_Green: 'Hazel_Green',
+  Gray: 'Gray'
+};
 
 exports.Prisma.ModelName = {
   User: 'User',
   Session: 'Session',
   Account: 'Account',
-  Verification: 'Verification'
+  Verification: 'Verification',
+  Model: 'Model',
+  OutputImage: 'OutputImage',
+  Pack: 'Pack',
+  PackPrompts: 'PackPrompts'
 };
 
 /**

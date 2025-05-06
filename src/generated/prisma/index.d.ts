@@ -33,6 +33,90 @@ export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
  * 
  */
 export type Verification = $Result.DefaultSelection<Prisma.$VerificationPayload>
+/**
+ * Model Model
+ * 
+ */
+export type Model = $Result.DefaultSelection<Prisma.$ModelPayload>
+/**
+ * Model OutputImage
+ * 
+ */
+export type OutputImage = $Result.DefaultSelection<Prisma.$OutputImagePayload>
+/**
+ * Model Pack
+ * 
+ */
+export type Pack = $Result.DefaultSelection<Prisma.$PackPayload>
+/**
+ * Model PackPrompts
+ * 
+ */
+export type PackPrompts = $Result.DefaultSelection<Prisma.$PackPromptsPayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const Type: {
+  Man: 'Man',
+  Women: 'Women',
+  Other: 'Other'
+};
+
+export type Type = (typeof Type)[keyof typeof Type]
+
+
+export const Ethinicity: {
+  White: 'White',
+  Black: 'Black',
+  Asian_American: 'Asian_American',
+  East_Asian: 'East_Asian',
+  South_East_Asian: 'South_East_Asian',
+  South_Asian: 'South_Asian',
+  Middle_East: 'Middle_East',
+  Pacific: 'Pacific',
+  Hispanic: 'Hispanic'
+};
+
+export type Ethinicity = (typeof Ethinicity)[keyof typeof Ethinicity]
+
+
+export const EyeColor: {
+  Brown: 'Brown',
+  Blue: 'Blue',
+  Hazel_Green: 'Hazel_Green',
+  Gray: 'Gray'
+};
+
+export type EyeColor = (typeof EyeColor)[keyof typeof EyeColor]
+
+
+export const Status: {
+  Pending: 'Pending',
+  Success: 'Success',
+  Failed: 'Failed'
+};
+
+export type Status = (typeof Status)[keyof typeof Status]
+
+}
+
+export type Type = $Enums.Type
+
+export const Type: typeof $Enums.Type
+
+export type Ethinicity = $Enums.Ethinicity
+
+export const Ethinicity: typeof $Enums.Ethinicity
+
+export type EyeColor = $Enums.EyeColor
+
+export const EyeColor: typeof $Enums.EyeColor
+
+export type Status = $Enums.Status
+
+export const Status: typeof $Enums.Status
 
 /**
  * ##  Prisma Client ʲˢ
@@ -198,6 +282,46 @@ export class PrismaClient<
     * ```
     */
   get verification(): Prisma.VerificationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.model`: Exposes CRUD operations for the **Model** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Models
+    * const models = await prisma.model.findMany()
+    * ```
+    */
+  get model(): Prisma.ModelDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.outputImage`: Exposes CRUD operations for the **OutputImage** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more OutputImages
+    * const outputImages = await prisma.outputImage.findMany()
+    * ```
+    */
+  get outputImage(): Prisma.OutputImageDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.pack`: Exposes CRUD operations for the **Pack** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Packs
+    * const packs = await prisma.pack.findMany()
+    * ```
+    */
+  get pack(): Prisma.PackDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.packPrompts`: Exposes CRUD operations for the **PackPrompts** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PackPrompts
+    * const packPrompts = await prisma.packPrompts.findMany()
+    * ```
+    */
+  get packPrompts(): Prisma.PackPromptsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -641,7 +765,11 @@ export namespace Prisma {
     User: 'User',
     Session: 'Session',
     Account: 'Account',
-    Verification: 'Verification'
+    Verification: 'Verification',
+    Model: 'Model',
+    OutputImage: 'OutputImage',
+    Pack: 'Pack',
+    PackPrompts: 'PackPrompts'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,7 +788,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "account" | "verification"
+      modelProps: "user" | "session" | "account" | "verification" | "model" | "outputImage" | "pack" | "packPrompts"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -960,6 +1088,302 @@ export namespace Prisma {
           }
         }
       }
+      Model: {
+        payload: Prisma.$ModelPayload<ExtArgs>
+        fields: Prisma.ModelFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ModelFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModelPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ModelFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModelPayload>
+          }
+          findFirst: {
+            args: Prisma.ModelFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModelPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ModelFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModelPayload>
+          }
+          findMany: {
+            args: Prisma.ModelFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModelPayload>[]
+          }
+          create: {
+            args: Prisma.ModelCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModelPayload>
+          }
+          createMany: {
+            args: Prisma.ModelCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ModelCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModelPayload>[]
+          }
+          delete: {
+            args: Prisma.ModelDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModelPayload>
+          }
+          update: {
+            args: Prisma.ModelUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModelPayload>
+          }
+          deleteMany: {
+            args: Prisma.ModelDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ModelUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ModelUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModelPayload>[]
+          }
+          upsert: {
+            args: Prisma.ModelUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ModelPayload>
+          }
+          aggregate: {
+            args: Prisma.ModelAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateModel>
+          }
+          groupBy: {
+            args: Prisma.ModelGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ModelGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ModelCountArgs<ExtArgs>
+            result: $Utils.Optional<ModelCountAggregateOutputType> | number
+          }
+        }
+      }
+      OutputImage: {
+        payload: Prisma.$OutputImagePayload<ExtArgs>
+        fields: Prisma.OutputImageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OutputImageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutputImagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OutputImageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutputImagePayload>
+          }
+          findFirst: {
+            args: Prisma.OutputImageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutputImagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OutputImageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutputImagePayload>
+          }
+          findMany: {
+            args: Prisma.OutputImageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutputImagePayload>[]
+          }
+          create: {
+            args: Prisma.OutputImageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutputImagePayload>
+          }
+          createMany: {
+            args: Prisma.OutputImageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.OutputImageCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutputImagePayload>[]
+          }
+          delete: {
+            args: Prisma.OutputImageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutputImagePayload>
+          }
+          update: {
+            args: Prisma.OutputImageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutputImagePayload>
+          }
+          deleteMany: {
+            args: Prisma.OutputImageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OutputImageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.OutputImageUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutputImagePayload>[]
+          }
+          upsert: {
+            args: Prisma.OutputImageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutputImagePayload>
+          }
+          aggregate: {
+            args: Prisma.OutputImageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOutputImage>
+          }
+          groupBy: {
+            args: Prisma.OutputImageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OutputImageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.OutputImageCountArgs<ExtArgs>
+            result: $Utils.Optional<OutputImageCountAggregateOutputType> | number
+          }
+        }
+      }
+      Pack: {
+        payload: Prisma.$PackPayload<ExtArgs>
+        fields: Prisma.PackFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PackFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PackFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPayload>
+          }
+          findFirst: {
+            args: Prisma.PackFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PackFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPayload>
+          }
+          findMany: {
+            args: Prisma.PackFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPayload>[]
+          }
+          create: {
+            args: Prisma.PackCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPayload>
+          }
+          createMany: {
+            args: Prisma.PackCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PackCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPayload>[]
+          }
+          delete: {
+            args: Prisma.PackDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPayload>
+          }
+          update: {
+            args: Prisma.PackUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPayload>
+          }
+          deleteMany: {
+            args: Prisma.PackDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PackUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PackUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPayload>[]
+          }
+          upsert: {
+            args: Prisma.PackUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPayload>
+          }
+          aggregate: {
+            args: Prisma.PackAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePack>
+          }
+          groupBy: {
+            args: Prisma.PackGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PackGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PackCountArgs<ExtArgs>
+            result: $Utils.Optional<PackCountAggregateOutputType> | number
+          }
+        }
+      }
+      PackPrompts: {
+        payload: Prisma.$PackPromptsPayload<ExtArgs>
+        fields: Prisma.PackPromptsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PackPromptsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPromptsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PackPromptsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPromptsPayload>
+          }
+          findFirst: {
+            args: Prisma.PackPromptsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPromptsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PackPromptsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPromptsPayload>
+          }
+          findMany: {
+            args: Prisma.PackPromptsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPromptsPayload>[]
+          }
+          create: {
+            args: Prisma.PackPromptsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPromptsPayload>
+          }
+          createMany: {
+            args: Prisma.PackPromptsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PackPromptsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPromptsPayload>[]
+          }
+          delete: {
+            args: Prisma.PackPromptsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPromptsPayload>
+          }
+          update: {
+            args: Prisma.PackPromptsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPromptsPayload>
+          }
+          deleteMany: {
+            args: Prisma.PackPromptsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PackPromptsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PackPromptsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPromptsPayload>[]
+          }
+          upsert: {
+            args: Prisma.PackPromptsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PackPromptsPayload>
+          }
+          aggregate: {
+            args: Prisma.PackPromptsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePackPrompts>
+          }
+          groupBy: {
+            args: Prisma.PackPromptsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PackPromptsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PackPromptsCountArgs<ExtArgs>
+            result: $Utils.Optional<PackPromptsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1048,6 +1472,10 @@ export namespace Prisma {
     session?: SessionOmit
     account?: AccountOmit
     verification?: VerificationOmit
+    model?: ModelOmit
+    outputImage?: OutputImageOmit
+    pack?: PackOmit
+    packPrompts?: PackPromptsOmit
   }
 
   /* Types for Logging */
@@ -1144,11 +1572,13 @@ export namespace Prisma {
   export type UserCountOutputType = {
     Session: number
     Account: number
+    models: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Session?: boolean | UserCountOutputTypeCountSessionArgs
     Account?: boolean | UserCountOutputTypeCountAccountArgs
+    models?: boolean | UserCountOutputTypeCountModelsArgs
   }
 
   // Custom InputTypes
@@ -1174,6 +1604,75 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountAccountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AccountWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountModelsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModelWhereInput
+  }
+
+
+  /**
+   * Count Type ModelCountOutputType
+   */
+
+  export type ModelCountOutputType = {
+    outputImages: number
+  }
+
+  export type ModelCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    outputImages?: boolean | ModelCountOutputTypeCountOutputImagesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ModelCountOutputType without action
+   */
+  export type ModelCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ModelCountOutputType
+     */
+    select?: ModelCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ModelCountOutputType without action
+   */
+  export type ModelCountOutputTypeCountOutputImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OutputImageWhereInput
+  }
+
+
+  /**
+   * Count Type PackCountOutputType
+   */
+
+  export type PackCountOutputType = {
+    packPrompts: number
+  }
+
+  export type PackCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    packPrompts?: boolean | PackCountOutputTypeCountPackPromptsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PackCountOutputType without action
+   */
+  export type PackCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackCountOutputType
+     */
+    select?: PackCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PackCountOutputType without action
+   */
+  export type PackCountOutputTypeCountPackPromptsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PackPromptsWhereInput
   }
 
 
@@ -1371,6 +1870,7 @@ export namespace Prisma {
     twoFactorEnabled?: boolean
     Session?: boolean | User$SessionArgs<ExtArgs>
     Account?: boolean | User$AccountArgs<ExtArgs>
+    models?: boolean | User$modelsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1411,6 +1911,7 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Session?: boolean | User$SessionArgs<ExtArgs>
     Account?: boolean | User$AccountArgs<ExtArgs>
+    models?: boolean | User$modelsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1421,6 +1922,7 @@ export namespace Prisma {
     objects: {
       Session: Prisma.$SessionPayload<ExtArgs>[]
       Account: Prisma.$AccountPayload<ExtArgs>[]
+      models: Prisma.$ModelPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1827,6 +2329,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Session<T extends User$SessionArgs<ExtArgs> = {}>(args?: Subset<T, User$SessionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Account<T extends User$AccountArgs<ExtArgs> = {}>(args?: Subset<T, User$AccountArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    models<T extends User$modelsArgs<ExtArgs> = {}>(args?: Subset<T, User$modelsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2297,6 +2800,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
+  }
+
+  /**
+   * User.models
+   */
+  export type User$modelsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelInclude<ExtArgs> | null
+    where?: ModelWhereInput
+    orderBy?: ModelOrderByWithRelationInput | ModelOrderByWithRelationInput[]
+    cursor?: ModelWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ModelScalarFieldEnum | ModelScalarFieldEnum[]
   }
 
   /**
@@ -5599,6 +6126,4431 @@ export namespace Prisma {
 
 
   /**
+   * Model Model
+   */
+
+  export type AggregateModel = {
+    _count: ModelCountAggregateOutputType | null
+    _avg: ModelAvgAggregateOutputType | null
+    _sum: ModelSumAggregateOutputType | null
+    _min: ModelMinAggregateOutputType | null
+    _max: ModelMaxAggregateOutputType | null
+  }
+
+  export type ModelAvgAggregateOutputType = {
+    age: number | null
+  }
+
+  export type ModelSumAggregateOutputType = {
+    age: number | null
+  }
+
+  export type ModelMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    name: string | null
+    age: number | null
+    type: $Enums.Type | null
+    trigerWord: string | null
+    tensorPath: string | null
+    status: $Enums.Status | null
+    ethinicity: $Enums.Ethinicity | null
+    eyeColor: $Enums.EyeColor | null
+    bold: boolean | null
+    falAiRequest_id: string | null
+    zipUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ModelMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    name: string | null
+    age: number | null
+    type: $Enums.Type | null
+    trigerWord: string | null
+    tensorPath: string | null
+    status: $Enums.Status | null
+    ethinicity: $Enums.Ethinicity | null
+    eyeColor: $Enums.EyeColor | null
+    bold: boolean | null
+    falAiRequest_id: string | null
+    zipUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ModelCountAggregateOutputType = {
+    id: number
+    userId: number
+    name: number
+    age: number
+    type: number
+    trigerWord: number
+    tensorPath: number
+    status: number
+    ethinicity: number
+    eyeColor: number
+    bold: number
+    falAiRequest_id: number
+    zipUrl: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ModelAvgAggregateInputType = {
+    age?: true
+  }
+
+  export type ModelSumAggregateInputType = {
+    age?: true
+  }
+
+  export type ModelMinAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    age?: true
+    type?: true
+    trigerWord?: true
+    tensorPath?: true
+    status?: true
+    ethinicity?: true
+    eyeColor?: true
+    bold?: true
+    falAiRequest_id?: true
+    zipUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ModelMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    age?: true
+    type?: true
+    trigerWord?: true
+    tensorPath?: true
+    status?: true
+    ethinicity?: true
+    eyeColor?: true
+    bold?: true
+    falAiRequest_id?: true
+    zipUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ModelCountAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    age?: true
+    type?: true
+    trigerWord?: true
+    tensorPath?: true
+    status?: true
+    ethinicity?: true
+    eyeColor?: true
+    bold?: true
+    falAiRequest_id?: true
+    zipUrl?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ModelAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Model to aggregate.
+     */
+    where?: ModelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Models to fetch.
+     */
+    orderBy?: ModelOrderByWithRelationInput | ModelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ModelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Models from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Models.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Models
+    **/
+    _count?: true | ModelCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ModelAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ModelSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ModelMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ModelMaxAggregateInputType
+  }
+
+  export type GetModelAggregateType<T extends ModelAggregateArgs> = {
+        [P in keyof T & keyof AggregateModel]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateModel[P]>
+      : GetScalarType<T[P], AggregateModel[P]>
+  }
+
+
+
+
+  export type ModelGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ModelWhereInput
+    orderBy?: ModelOrderByWithAggregationInput | ModelOrderByWithAggregationInput[]
+    by: ModelScalarFieldEnum[] | ModelScalarFieldEnum
+    having?: ModelScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ModelCountAggregateInputType | true
+    _avg?: ModelAvgAggregateInputType
+    _sum?: ModelSumAggregateInputType
+    _min?: ModelMinAggregateInputType
+    _max?: ModelMaxAggregateInputType
+  }
+
+  export type ModelGroupByOutputType = {
+    id: string
+    userId: string
+    name: string
+    age: number
+    type: $Enums.Type
+    trigerWord: string | null
+    tensorPath: string | null
+    status: $Enums.Status
+    ethinicity: $Enums.Ethinicity
+    eyeColor: $Enums.EyeColor
+    bold: boolean
+    falAiRequest_id: string | null
+    zipUrl: string
+    createdAt: Date
+    updatedAt: Date
+    _count: ModelCountAggregateOutputType | null
+    _avg: ModelAvgAggregateOutputType | null
+    _sum: ModelSumAggregateOutputType | null
+    _min: ModelMinAggregateOutputType | null
+    _max: ModelMaxAggregateOutputType | null
+  }
+
+  type GetModelGroupByPayload<T extends ModelGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ModelGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ModelGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ModelGroupByOutputType[P]>
+            : GetScalarType<T[P], ModelGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ModelSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    age?: boolean
+    type?: boolean
+    trigerWord?: boolean
+    tensorPath?: boolean
+    status?: boolean
+    ethinicity?: boolean
+    eyeColor?: boolean
+    bold?: boolean
+    falAiRequest_id?: boolean
+    zipUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    outputImages?: boolean | Model$outputImagesArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    _count?: boolean | ModelCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["model"]>
+
+  export type ModelSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    age?: boolean
+    type?: boolean
+    trigerWord?: boolean
+    tensorPath?: boolean
+    status?: boolean
+    ethinicity?: boolean
+    eyeColor?: boolean
+    bold?: boolean
+    falAiRequest_id?: boolean
+    zipUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["model"]>
+
+  export type ModelSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    age?: boolean
+    type?: boolean
+    trigerWord?: boolean
+    tensorPath?: boolean
+    status?: boolean
+    ethinicity?: boolean
+    eyeColor?: boolean
+    bold?: boolean
+    falAiRequest_id?: boolean
+    zipUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["model"]>
+
+  export type ModelSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    age?: boolean
+    type?: boolean
+    trigerWord?: boolean
+    tensorPath?: boolean
+    status?: boolean
+    ethinicity?: boolean
+    eyeColor?: boolean
+    bold?: boolean
+    falAiRequest_id?: boolean
+    zipUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ModelOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "age" | "type" | "trigerWord" | "tensorPath" | "status" | "ethinicity" | "eyeColor" | "bold" | "falAiRequest_id" | "zipUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["model"]>
+  export type ModelInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    outputImages?: boolean | Model$outputImagesArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    _count?: boolean | ModelCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ModelIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type ModelIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $ModelPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Model"
+    objects: {
+      outputImages: Prisma.$OutputImagePayload<ExtArgs>[]
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      name: string
+      age: number
+      type: $Enums.Type
+      trigerWord: string | null
+      tensorPath: string | null
+      status: $Enums.Status
+      ethinicity: $Enums.Ethinicity
+      eyeColor: $Enums.EyeColor
+      bold: boolean
+      falAiRequest_id: string | null
+      zipUrl: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["model"]>
+    composites: {}
+  }
+
+  type ModelGetPayload<S extends boolean | null | undefined | ModelDefaultArgs> = $Result.GetResult<Prisma.$ModelPayload, S>
+
+  type ModelCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ModelFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ModelCountAggregateInputType | true
+    }
+
+  export interface ModelDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Model'], meta: { name: 'Model' } }
+    /**
+     * Find zero or one Model that matches the filter.
+     * @param {ModelFindUniqueArgs} args - Arguments to find a Model
+     * @example
+     * // Get one Model
+     * const model = await prisma.model.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ModelFindUniqueArgs>(args: SelectSubset<T, ModelFindUniqueArgs<ExtArgs>>): Prisma__ModelClient<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Model that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ModelFindUniqueOrThrowArgs} args - Arguments to find a Model
+     * @example
+     * // Get one Model
+     * const model = await prisma.model.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ModelFindUniqueOrThrowArgs>(args: SelectSubset<T, ModelFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ModelClient<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Model that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModelFindFirstArgs} args - Arguments to find a Model
+     * @example
+     * // Get one Model
+     * const model = await prisma.model.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ModelFindFirstArgs>(args?: SelectSubset<T, ModelFindFirstArgs<ExtArgs>>): Prisma__ModelClient<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Model that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModelFindFirstOrThrowArgs} args - Arguments to find a Model
+     * @example
+     * // Get one Model
+     * const model = await prisma.model.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ModelFindFirstOrThrowArgs>(args?: SelectSubset<T, ModelFindFirstOrThrowArgs<ExtArgs>>): Prisma__ModelClient<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Models that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModelFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Models
+     * const models = await prisma.model.findMany()
+     * 
+     * // Get first 10 Models
+     * const models = await prisma.model.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const modelWithIdOnly = await prisma.model.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ModelFindManyArgs>(args?: SelectSubset<T, ModelFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Model.
+     * @param {ModelCreateArgs} args - Arguments to create a Model.
+     * @example
+     * // Create one Model
+     * const Model = await prisma.model.create({
+     *   data: {
+     *     // ... data to create a Model
+     *   }
+     * })
+     * 
+     */
+    create<T extends ModelCreateArgs>(args: SelectSubset<T, ModelCreateArgs<ExtArgs>>): Prisma__ModelClient<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Models.
+     * @param {ModelCreateManyArgs} args - Arguments to create many Models.
+     * @example
+     * // Create many Models
+     * const model = await prisma.model.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ModelCreateManyArgs>(args?: SelectSubset<T, ModelCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Models and returns the data saved in the database.
+     * @param {ModelCreateManyAndReturnArgs} args - Arguments to create many Models.
+     * @example
+     * // Create many Models
+     * const model = await prisma.model.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Models and only return the `id`
+     * const modelWithIdOnly = await prisma.model.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ModelCreateManyAndReturnArgs>(args?: SelectSubset<T, ModelCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Model.
+     * @param {ModelDeleteArgs} args - Arguments to delete one Model.
+     * @example
+     * // Delete one Model
+     * const Model = await prisma.model.delete({
+     *   where: {
+     *     // ... filter to delete one Model
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ModelDeleteArgs>(args: SelectSubset<T, ModelDeleteArgs<ExtArgs>>): Prisma__ModelClient<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Model.
+     * @param {ModelUpdateArgs} args - Arguments to update one Model.
+     * @example
+     * // Update one Model
+     * const model = await prisma.model.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ModelUpdateArgs>(args: SelectSubset<T, ModelUpdateArgs<ExtArgs>>): Prisma__ModelClient<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Models.
+     * @param {ModelDeleteManyArgs} args - Arguments to filter Models to delete.
+     * @example
+     * // Delete a few Models
+     * const { count } = await prisma.model.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ModelDeleteManyArgs>(args?: SelectSubset<T, ModelDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Models.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModelUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Models
+     * const model = await prisma.model.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ModelUpdateManyArgs>(args: SelectSubset<T, ModelUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Models and returns the data updated in the database.
+     * @param {ModelUpdateManyAndReturnArgs} args - Arguments to update many Models.
+     * @example
+     * // Update many Models
+     * const model = await prisma.model.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Models and only return the `id`
+     * const modelWithIdOnly = await prisma.model.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ModelUpdateManyAndReturnArgs>(args: SelectSubset<T, ModelUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Model.
+     * @param {ModelUpsertArgs} args - Arguments to update or create a Model.
+     * @example
+     * // Update or create a Model
+     * const model = await prisma.model.upsert({
+     *   create: {
+     *     // ... data to create a Model
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Model we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ModelUpsertArgs>(args: SelectSubset<T, ModelUpsertArgs<ExtArgs>>): Prisma__ModelClient<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Models.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModelCountArgs} args - Arguments to filter Models to count.
+     * @example
+     * // Count the number of Models
+     * const count = await prisma.model.count({
+     *   where: {
+     *     // ... the filter for the Models we want to count
+     *   }
+     * })
+    **/
+    count<T extends ModelCountArgs>(
+      args?: Subset<T, ModelCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ModelCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Model.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModelAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ModelAggregateArgs>(args: Subset<T, ModelAggregateArgs>): Prisma.PrismaPromise<GetModelAggregateType<T>>
+
+    /**
+     * Group by Model.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ModelGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ModelGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ModelGroupByArgs['orderBy'] }
+        : { orderBy?: ModelGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ModelGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetModelGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Model model
+   */
+  readonly fields: ModelFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Model.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ModelClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    outputImages<T extends Model$outputImagesArgs<ExtArgs> = {}>(args?: Subset<T, Model$outputImagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Model model
+   */
+  interface ModelFieldRefs {
+    readonly id: FieldRef<"Model", 'String'>
+    readonly userId: FieldRef<"Model", 'String'>
+    readonly name: FieldRef<"Model", 'String'>
+    readonly age: FieldRef<"Model", 'Int'>
+    readonly type: FieldRef<"Model", 'Type'>
+    readonly trigerWord: FieldRef<"Model", 'String'>
+    readonly tensorPath: FieldRef<"Model", 'String'>
+    readonly status: FieldRef<"Model", 'Status'>
+    readonly ethinicity: FieldRef<"Model", 'Ethinicity'>
+    readonly eyeColor: FieldRef<"Model", 'EyeColor'>
+    readonly bold: FieldRef<"Model", 'Boolean'>
+    readonly falAiRequest_id: FieldRef<"Model", 'String'>
+    readonly zipUrl: FieldRef<"Model", 'String'>
+    readonly createdAt: FieldRef<"Model", 'DateTime'>
+    readonly updatedAt: FieldRef<"Model", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Model findUnique
+   */
+  export type ModelFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelInclude<ExtArgs> | null
+    /**
+     * Filter, which Model to fetch.
+     */
+    where: ModelWhereUniqueInput
+  }
+
+  /**
+   * Model findUniqueOrThrow
+   */
+  export type ModelFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelInclude<ExtArgs> | null
+    /**
+     * Filter, which Model to fetch.
+     */
+    where: ModelWhereUniqueInput
+  }
+
+  /**
+   * Model findFirst
+   */
+  export type ModelFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelInclude<ExtArgs> | null
+    /**
+     * Filter, which Model to fetch.
+     */
+    where?: ModelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Models to fetch.
+     */
+    orderBy?: ModelOrderByWithRelationInput | ModelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Models.
+     */
+    cursor?: ModelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Models from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Models.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Models.
+     */
+    distinct?: ModelScalarFieldEnum | ModelScalarFieldEnum[]
+  }
+
+  /**
+   * Model findFirstOrThrow
+   */
+  export type ModelFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelInclude<ExtArgs> | null
+    /**
+     * Filter, which Model to fetch.
+     */
+    where?: ModelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Models to fetch.
+     */
+    orderBy?: ModelOrderByWithRelationInput | ModelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Models.
+     */
+    cursor?: ModelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Models from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Models.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Models.
+     */
+    distinct?: ModelScalarFieldEnum | ModelScalarFieldEnum[]
+  }
+
+  /**
+   * Model findMany
+   */
+  export type ModelFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelInclude<ExtArgs> | null
+    /**
+     * Filter, which Models to fetch.
+     */
+    where?: ModelWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Models to fetch.
+     */
+    orderBy?: ModelOrderByWithRelationInput | ModelOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Models.
+     */
+    cursor?: ModelWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Models from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Models.
+     */
+    skip?: number
+    distinct?: ModelScalarFieldEnum | ModelScalarFieldEnum[]
+  }
+
+  /**
+   * Model create
+   */
+  export type ModelCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Model.
+     */
+    data: XOR<ModelCreateInput, ModelUncheckedCreateInput>
+  }
+
+  /**
+   * Model createMany
+   */
+  export type ModelCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Models.
+     */
+    data: ModelCreateManyInput | ModelCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Model createManyAndReturn
+   */
+  export type ModelCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * The data used to create many Models.
+     */
+    data: ModelCreateManyInput | ModelCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Model update
+   */
+  export type ModelUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Model.
+     */
+    data: XOR<ModelUpdateInput, ModelUncheckedUpdateInput>
+    /**
+     * Choose, which Model to update.
+     */
+    where: ModelWhereUniqueInput
+  }
+
+  /**
+   * Model updateMany
+   */
+  export type ModelUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Models.
+     */
+    data: XOR<ModelUpdateManyMutationInput, ModelUncheckedUpdateManyInput>
+    /**
+     * Filter which Models to update
+     */
+    where?: ModelWhereInput
+    /**
+     * Limit how many Models to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Model updateManyAndReturn
+   */
+  export type ModelUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * The data used to update Models.
+     */
+    data: XOR<ModelUpdateManyMutationInput, ModelUncheckedUpdateManyInput>
+    /**
+     * Filter which Models to update
+     */
+    where?: ModelWhereInput
+    /**
+     * Limit how many Models to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Model upsert
+   */
+  export type ModelUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Model to update in case it exists.
+     */
+    where: ModelWhereUniqueInput
+    /**
+     * In case the Model found by the `where` argument doesn't exist, create a new Model with this data.
+     */
+    create: XOR<ModelCreateInput, ModelUncheckedCreateInput>
+    /**
+     * In case the Model was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ModelUpdateInput, ModelUncheckedUpdateInput>
+  }
+
+  /**
+   * Model delete
+   */
+  export type ModelDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelInclude<ExtArgs> | null
+    /**
+     * Filter which Model to delete.
+     */
+    where: ModelWhereUniqueInput
+  }
+
+  /**
+   * Model deleteMany
+   */
+  export type ModelDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Models to delete
+     */
+    where?: ModelWhereInput
+    /**
+     * Limit how many Models to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Model.outputImages
+   */
+  export type Model$outputImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageInclude<ExtArgs> | null
+    where?: OutputImageWhereInput
+    orderBy?: OutputImageOrderByWithRelationInput | OutputImageOrderByWithRelationInput[]
+    cursor?: OutputImageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OutputImageScalarFieldEnum | OutputImageScalarFieldEnum[]
+  }
+
+  /**
+   * Model without action
+   */
+  export type ModelDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Model
+     */
+    select?: ModelSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Model
+     */
+    omit?: ModelOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ModelInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model OutputImage
+   */
+
+  export type AggregateOutputImage = {
+    _count: OutputImageCountAggregateOutputType | null
+    _min: OutputImageMinAggregateOutputType | null
+    _max: OutputImageMaxAggregateOutputType | null
+  }
+
+  export type OutputImageMinAggregateOutputType = {
+    id: string | null
+    imageUrl: string | null
+    modelId: string | null
+    userId: string | null
+    falAiRequest_id: string | null
+    prompt: string | null
+    status: $Enums.Status | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type OutputImageMaxAggregateOutputType = {
+    id: string | null
+    imageUrl: string | null
+    modelId: string | null
+    userId: string | null
+    falAiRequest_id: string | null
+    prompt: string | null
+    status: $Enums.Status | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type OutputImageCountAggregateOutputType = {
+    id: number
+    imageUrl: number
+    modelId: number
+    userId: number
+    falAiRequest_id: number
+    prompt: number
+    status: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type OutputImageMinAggregateInputType = {
+    id?: true
+    imageUrl?: true
+    modelId?: true
+    userId?: true
+    falAiRequest_id?: true
+    prompt?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type OutputImageMaxAggregateInputType = {
+    id?: true
+    imageUrl?: true
+    modelId?: true
+    userId?: true
+    falAiRequest_id?: true
+    prompt?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type OutputImageCountAggregateInputType = {
+    id?: true
+    imageUrl?: true
+    modelId?: true
+    userId?: true
+    falAiRequest_id?: true
+    prompt?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type OutputImageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OutputImage to aggregate.
+     */
+    where?: OutputImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OutputImages to fetch.
+     */
+    orderBy?: OutputImageOrderByWithRelationInput | OutputImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: OutputImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OutputImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OutputImages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned OutputImages
+    **/
+    _count?: true | OutputImageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OutputImageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OutputImageMaxAggregateInputType
+  }
+
+  export type GetOutputImageAggregateType<T extends OutputImageAggregateArgs> = {
+        [P in keyof T & keyof AggregateOutputImage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOutputImage[P]>
+      : GetScalarType<T[P], AggregateOutputImage[P]>
+  }
+
+
+
+
+  export type OutputImageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OutputImageWhereInput
+    orderBy?: OutputImageOrderByWithAggregationInput | OutputImageOrderByWithAggregationInput[]
+    by: OutputImageScalarFieldEnum[] | OutputImageScalarFieldEnum
+    having?: OutputImageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OutputImageCountAggregateInputType | true
+    _min?: OutputImageMinAggregateInputType
+    _max?: OutputImageMaxAggregateInputType
+  }
+
+  export type OutputImageGroupByOutputType = {
+    id: string
+    imageUrl: string
+    modelId: string
+    userId: string
+    falAiRequest_id: string | null
+    prompt: string
+    status: $Enums.Status
+    createdAt: Date
+    updatedAt: Date
+    _count: OutputImageCountAggregateOutputType | null
+    _min: OutputImageMinAggregateOutputType | null
+    _max: OutputImageMaxAggregateOutputType | null
+  }
+
+  type GetOutputImageGroupByPayload<T extends OutputImageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OutputImageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OutputImageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OutputImageGroupByOutputType[P]>
+            : GetScalarType<T[P], OutputImageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type OutputImageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    imageUrl?: boolean
+    modelId?: boolean
+    userId?: boolean
+    falAiRequest_id?: boolean
+    prompt?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    model?: boolean | ModelDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["outputImage"]>
+
+  export type OutputImageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    imageUrl?: boolean
+    modelId?: boolean
+    userId?: boolean
+    falAiRequest_id?: boolean
+    prompt?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    model?: boolean | ModelDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["outputImage"]>
+
+  export type OutputImageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    imageUrl?: boolean
+    modelId?: boolean
+    userId?: boolean
+    falAiRequest_id?: boolean
+    prompt?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    model?: boolean | ModelDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["outputImage"]>
+
+  export type OutputImageSelectScalar = {
+    id?: boolean
+    imageUrl?: boolean
+    modelId?: boolean
+    userId?: boolean
+    falAiRequest_id?: boolean
+    prompt?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type OutputImageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "imageUrl" | "modelId" | "userId" | "falAiRequest_id" | "prompt" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["outputImage"]>
+  export type OutputImageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    model?: boolean | ModelDefaultArgs<ExtArgs>
+  }
+  export type OutputImageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    model?: boolean | ModelDefaultArgs<ExtArgs>
+  }
+  export type OutputImageIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    model?: boolean | ModelDefaultArgs<ExtArgs>
+  }
+
+  export type $OutputImagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "OutputImage"
+    objects: {
+      model: Prisma.$ModelPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      imageUrl: string
+      modelId: string
+      userId: string
+      falAiRequest_id: string | null
+      prompt: string
+      status: $Enums.Status
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["outputImage"]>
+    composites: {}
+  }
+
+  type OutputImageGetPayload<S extends boolean | null | undefined | OutputImageDefaultArgs> = $Result.GetResult<Prisma.$OutputImagePayload, S>
+
+  type OutputImageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OutputImageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OutputImageCountAggregateInputType | true
+    }
+
+  export interface OutputImageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['OutputImage'], meta: { name: 'OutputImage' } }
+    /**
+     * Find zero or one OutputImage that matches the filter.
+     * @param {OutputImageFindUniqueArgs} args - Arguments to find a OutputImage
+     * @example
+     * // Get one OutputImage
+     * const outputImage = await prisma.outputImage.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends OutputImageFindUniqueArgs>(args: SelectSubset<T, OutputImageFindUniqueArgs<ExtArgs>>): Prisma__OutputImageClient<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one OutputImage that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {OutputImageFindUniqueOrThrowArgs} args - Arguments to find a OutputImage
+     * @example
+     * // Get one OutputImage
+     * const outputImage = await prisma.outputImage.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends OutputImageFindUniqueOrThrowArgs>(args: SelectSubset<T, OutputImageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OutputImageClient<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OutputImage that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutputImageFindFirstArgs} args - Arguments to find a OutputImage
+     * @example
+     * // Get one OutputImage
+     * const outputImage = await prisma.outputImage.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends OutputImageFindFirstArgs>(args?: SelectSubset<T, OutputImageFindFirstArgs<ExtArgs>>): Prisma__OutputImageClient<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OutputImage that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutputImageFindFirstOrThrowArgs} args - Arguments to find a OutputImage
+     * @example
+     * // Get one OutputImage
+     * const outputImage = await prisma.outputImage.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends OutputImageFindFirstOrThrowArgs>(args?: SelectSubset<T, OutputImageFindFirstOrThrowArgs<ExtArgs>>): Prisma__OutputImageClient<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more OutputImages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutputImageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all OutputImages
+     * const outputImages = await prisma.outputImage.findMany()
+     * 
+     * // Get first 10 OutputImages
+     * const outputImages = await prisma.outputImage.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const outputImageWithIdOnly = await prisma.outputImage.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends OutputImageFindManyArgs>(args?: SelectSubset<T, OutputImageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a OutputImage.
+     * @param {OutputImageCreateArgs} args - Arguments to create a OutputImage.
+     * @example
+     * // Create one OutputImage
+     * const OutputImage = await prisma.outputImage.create({
+     *   data: {
+     *     // ... data to create a OutputImage
+     *   }
+     * })
+     * 
+     */
+    create<T extends OutputImageCreateArgs>(args: SelectSubset<T, OutputImageCreateArgs<ExtArgs>>): Prisma__OutputImageClient<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many OutputImages.
+     * @param {OutputImageCreateManyArgs} args - Arguments to create many OutputImages.
+     * @example
+     * // Create many OutputImages
+     * const outputImage = await prisma.outputImage.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends OutputImageCreateManyArgs>(args?: SelectSubset<T, OutputImageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many OutputImages and returns the data saved in the database.
+     * @param {OutputImageCreateManyAndReturnArgs} args - Arguments to create many OutputImages.
+     * @example
+     * // Create many OutputImages
+     * const outputImage = await prisma.outputImage.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many OutputImages and only return the `id`
+     * const outputImageWithIdOnly = await prisma.outputImage.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends OutputImageCreateManyAndReturnArgs>(args?: SelectSubset<T, OutputImageCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a OutputImage.
+     * @param {OutputImageDeleteArgs} args - Arguments to delete one OutputImage.
+     * @example
+     * // Delete one OutputImage
+     * const OutputImage = await prisma.outputImage.delete({
+     *   where: {
+     *     // ... filter to delete one OutputImage
+     *   }
+     * })
+     * 
+     */
+    delete<T extends OutputImageDeleteArgs>(args: SelectSubset<T, OutputImageDeleteArgs<ExtArgs>>): Prisma__OutputImageClient<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one OutputImage.
+     * @param {OutputImageUpdateArgs} args - Arguments to update one OutputImage.
+     * @example
+     * // Update one OutputImage
+     * const outputImage = await prisma.outputImage.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends OutputImageUpdateArgs>(args: SelectSubset<T, OutputImageUpdateArgs<ExtArgs>>): Prisma__OutputImageClient<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more OutputImages.
+     * @param {OutputImageDeleteManyArgs} args - Arguments to filter OutputImages to delete.
+     * @example
+     * // Delete a few OutputImages
+     * const { count } = await prisma.outputImage.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends OutputImageDeleteManyArgs>(args?: SelectSubset<T, OutputImageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OutputImages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutputImageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many OutputImages
+     * const outputImage = await prisma.outputImage.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends OutputImageUpdateManyArgs>(args: SelectSubset<T, OutputImageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OutputImages and returns the data updated in the database.
+     * @param {OutputImageUpdateManyAndReturnArgs} args - Arguments to update many OutputImages.
+     * @example
+     * // Update many OutputImages
+     * const outputImage = await prisma.outputImage.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more OutputImages and only return the `id`
+     * const outputImageWithIdOnly = await prisma.outputImage.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends OutputImageUpdateManyAndReturnArgs>(args: SelectSubset<T, OutputImageUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one OutputImage.
+     * @param {OutputImageUpsertArgs} args - Arguments to update or create a OutputImage.
+     * @example
+     * // Update or create a OutputImage
+     * const outputImage = await prisma.outputImage.upsert({
+     *   create: {
+     *     // ... data to create a OutputImage
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the OutputImage we want to update
+     *   }
+     * })
+     */
+    upsert<T extends OutputImageUpsertArgs>(args: SelectSubset<T, OutputImageUpsertArgs<ExtArgs>>): Prisma__OutputImageClient<$Result.GetResult<Prisma.$OutputImagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of OutputImages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutputImageCountArgs} args - Arguments to filter OutputImages to count.
+     * @example
+     * // Count the number of OutputImages
+     * const count = await prisma.outputImage.count({
+     *   where: {
+     *     // ... the filter for the OutputImages we want to count
+     *   }
+     * })
+    **/
+    count<T extends OutputImageCountArgs>(
+      args?: Subset<T, OutputImageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OutputImageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a OutputImage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutputImageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OutputImageAggregateArgs>(args: Subset<T, OutputImageAggregateArgs>): Prisma.PrismaPromise<GetOutputImageAggregateType<T>>
+
+    /**
+     * Group by OutputImage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutputImageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends OutputImageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: OutputImageGroupByArgs['orderBy'] }
+        : { orderBy?: OutputImageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, OutputImageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOutputImageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the OutputImage model
+   */
+  readonly fields: OutputImageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for OutputImage.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__OutputImageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    model<T extends ModelDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ModelDefaultArgs<ExtArgs>>): Prisma__ModelClient<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the OutputImage model
+   */
+  interface OutputImageFieldRefs {
+    readonly id: FieldRef<"OutputImage", 'String'>
+    readonly imageUrl: FieldRef<"OutputImage", 'String'>
+    readonly modelId: FieldRef<"OutputImage", 'String'>
+    readonly userId: FieldRef<"OutputImage", 'String'>
+    readonly falAiRequest_id: FieldRef<"OutputImage", 'String'>
+    readonly prompt: FieldRef<"OutputImage", 'String'>
+    readonly status: FieldRef<"OutputImage", 'Status'>
+    readonly createdAt: FieldRef<"OutputImage", 'DateTime'>
+    readonly updatedAt: FieldRef<"OutputImage", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * OutputImage findUnique
+   */
+  export type OutputImageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageInclude<ExtArgs> | null
+    /**
+     * Filter, which OutputImage to fetch.
+     */
+    where: OutputImageWhereUniqueInput
+  }
+
+  /**
+   * OutputImage findUniqueOrThrow
+   */
+  export type OutputImageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageInclude<ExtArgs> | null
+    /**
+     * Filter, which OutputImage to fetch.
+     */
+    where: OutputImageWhereUniqueInput
+  }
+
+  /**
+   * OutputImage findFirst
+   */
+  export type OutputImageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageInclude<ExtArgs> | null
+    /**
+     * Filter, which OutputImage to fetch.
+     */
+    where?: OutputImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OutputImages to fetch.
+     */
+    orderBy?: OutputImageOrderByWithRelationInput | OutputImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OutputImages.
+     */
+    cursor?: OutputImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OutputImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OutputImages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OutputImages.
+     */
+    distinct?: OutputImageScalarFieldEnum | OutputImageScalarFieldEnum[]
+  }
+
+  /**
+   * OutputImage findFirstOrThrow
+   */
+  export type OutputImageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageInclude<ExtArgs> | null
+    /**
+     * Filter, which OutputImage to fetch.
+     */
+    where?: OutputImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OutputImages to fetch.
+     */
+    orderBy?: OutputImageOrderByWithRelationInput | OutputImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OutputImages.
+     */
+    cursor?: OutputImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OutputImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OutputImages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OutputImages.
+     */
+    distinct?: OutputImageScalarFieldEnum | OutputImageScalarFieldEnum[]
+  }
+
+  /**
+   * OutputImage findMany
+   */
+  export type OutputImageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageInclude<ExtArgs> | null
+    /**
+     * Filter, which OutputImages to fetch.
+     */
+    where?: OutputImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OutputImages to fetch.
+     */
+    orderBy?: OutputImageOrderByWithRelationInput | OutputImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing OutputImages.
+     */
+    cursor?: OutputImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OutputImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OutputImages.
+     */
+    skip?: number
+    distinct?: OutputImageScalarFieldEnum | OutputImageScalarFieldEnum[]
+  }
+
+  /**
+   * OutputImage create
+   */
+  export type OutputImageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a OutputImage.
+     */
+    data: XOR<OutputImageCreateInput, OutputImageUncheckedCreateInput>
+  }
+
+  /**
+   * OutputImage createMany
+   */
+  export type OutputImageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many OutputImages.
+     */
+    data: OutputImageCreateManyInput | OutputImageCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * OutputImage createManyAndReturn
+   */
+  export type OutputImageCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * The data used to create many OutputImages.
+     */
+    data: OutputImageCreateManyInput | OutputImageCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OutputImage update
+   */
+  export type OutputImageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a OutputImage.
+     */
+    data: XOR<OutputImageUpdateInput, OutputImageUncheckedUpdateInput>
+    /**
+     * Choose, which OutputImage to update.
+     */
+    where: OutputImageWhereUniqueInput
+  }
+
+  /**
+   * OutputImage updateMany
+   */
+  export type OutputImageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update OutputImages.
+     */
+    data: XOR<OutputImageUpdateManyMutationInput, OutputImageUncheckedUpdateManyInput>
+    /**
+     * Filter which OutputImages to update
+     */
+    where?: OutputImageWhereInput
+    /**
+     * Limit how many OutputImages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * OutputImage updateManyAndReturn
+   */
+  export type OutputImageUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * The data used to update OutputImages.
+     */
+    data: XOR<OutputImageUpdateManyMutationInput, OutputImageUncheckedUpdateManyInput>
+    /**
+     * Filter which OutputImages to update
+     */
+    where?: OutputImageWhereInput
+    /**
+     * Limit how many OutputImages to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OutputImage upsert
+   */
+  export type OutputImageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the OutputImage to update in case it exists.
+     */
+    where: OutputImageWhereUniqueInput
+    /**
+     * In case the OutputImage found by the `where` argument doesn't exist, create a new OutputImage with this data.
+     */
+    create: XOR<OutputImageCreateInput, OutputImageUncheckedCreateInput>
+    /**
+     * In case the OutputImage was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<OutputImageUpdateInput, OutputImageUncheckedUpdateInput>
+  }
+
+  /**
+   * OutputImage delete
+   */
+  export type OutputImageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageInclude<ExtArgs> | null
+    /**
+     * Filter which OutputImage to delete.
+     */
+    where: OutputImageWhereUniqueInput
+  }
+
+  /**
+   * OutputImage deleteMany
+   */
+  export type OutputImageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OutputImages to delete
+     */
+    where?: OutputImageWhereInput
+    /**
+     * Limit how many OutputImages to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * OutputImage without action
+   */
+  export type OutputImageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OutputImage
+     */
+    select?: OutputImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OutputImage
+     */
+    omit?: OutputImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutputImageInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Pack
+   */
+
+  export type AggregatePack = {
+    _count: PackCountAggregateOutputType | null
+    _min: PackMinAggregateOutputType | null
+    _max: PackMaxAggregateOutputType | null
+  }
+
+  export type PackMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+  }
+
+  export type PackMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+  }
+
+  export type PackCountAggregateOutputType = {
+    id: number
+    name: number
+    _all: number
+  }
+
+
+  export type PackMinAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type PackMaxAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type PackCountAggregateInputType = {
+    id?: true
+    name?: true
+    _all?: true
+  }
+
+  export type PackAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Pack to aggregate.
+     */
+    where?: PackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Packs to fetch.
+     */
+    orderBy?: PackOrderByWithRelationInput | PackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Packs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Packs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Packs
+    **/
+    _count?: true | PackCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PackMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PackMaxAggregateInputType
+  }
+
+  export type GetPackAggregateType<T extends PackAggregateArgs> = {
+        [P in keyof T & keyof AggregatePack]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePack[P]>
+      : GetScalarType<T[P], AggregatePack[P]>
+  }
+
+
+
+
+  export type PackGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PackWhereInput
+    orderBy?: PackOrderByWithAggregationInput | PackOrderByWithAggregationInput[]
+    by: PackScalarFieldEnum[] | PackScalarFieldEnum
+    having?: PackScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PackCountAggregateInputType | true
+    _min?: PackMinAggregateInputType
+    _max?: PackMaxAggregateInputType
+  }
+
+  export type PackGroupByOutputType = {
+    id: string
+    name: string
+    _count: PackCountAggregateOutputType | null
+    _min: PackMinAggregateOutputType | null
+    _max: PackMaxAggregateOutputType | null
+  }
+
+  type GetPackGroupByPayload<T extends PackGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PackGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PackGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PackGroupByOutputType[P]>
+            : GetScalarType<T[P], PackGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PackSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    packPrompts?: boolean | Pack$packPromptsArgs<ExtArgs>
+    _count?: boolean | PackCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pack"]>
+
+  export type PackSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+  }, ExtArgs["result"]["pack"]>
+
+  export type PackSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+  }, ExtArgs["result"]["pack"]>
+
+  export type PackSelectScalar = {
+    id?: boolean
+    name?: boolean
+  }
+
+  export type PackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["pack"]>
+  export type PackInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    packPrompts?: boolean | Pack$packPromptsArgs<ExtArgs>
+    _count?: boolean | PackCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type PackIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type PackIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $PackPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Pack"
+    objects: {
+      packPrompts: Prisma.$PackPromptsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+    }, ExtArgs["result"]["pack"]>
+    composites: {}
+  }
+
+  type PackGetPayload<S extends boolean | null | undefined | PackDefaultArgs> = $Result.GetResult<Prisma.$PackPayload, S>
+
+  type PackCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PackFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PackCountAggregateInputType | true
+    }
+
+  export interface PackDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Pack'], meta: { name: 'Pack' } }
+    /**
+     * Find zero or one Pack that matches the filter.
+     * @param {PackFindUniqueArgs} args - Arguments to find a Pack
+     * @example
+     * // Get one Pack
+     * const pack = await prisma.pack.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PackFindUniqueArgs>(args: SelectSubset<T, PackFindUniqueArgs<ExtArgs>>): Prisma__PackClient<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Pack that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PackFindUniqueOrThrowArgs} args - Arguments to find a Pack
+     * @example
+     * // Get one Pack
+     * const pack = await prisma.pack.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PackFindUniqueOrThrowArgs>(args: SelectSubset<T, PackFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PackClient<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Pack that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackFindFirstArgs} args - Arguments to find a Pack
+     * @example
+     * // Get one Pack
+     * const pack = await prisma.pack.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PackFindFirstArgs>(args?: SelectSubset<T, PackFindFirstArgs<ExtArgs>>): Prisma__PackClient<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Pack that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackFindFirstOrThrowArgs} args - Arguments to find a Pack
+     * @example
+     * // Get one Pack
+     * const pack = await prisma.pack.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PackFindFirstOrThrowArgs>(args?: SelectSubset<T, PackFindFirstOrThrowArgs<ExtArgs>>): Prisma__PackClient<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Packs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Packs
+     * const packs = await prisma.pack.findMany()
+     * 
+     * // Get first 10 Packs
+     * const packs = await prisma.pack.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const packWithIdOnly = await prisma.pack.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PackFindManyArgs>(args?: SelectSubset<T, PackFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Pack.
+     * @param {PackCreateArgs} args - Arguments to create a Pack.
+     * @example
+     * // Create one Pack
+     * const Pack = await prisma.pack.create({
+     *   data: {
+     *     // ... data to create a Pack
+     *   }
+     * })
+     * 
+     */
+    create<T extends PackCreateArgs>(args: SelectSubset<T, PackCreateArgs<ExtArgs>>): Prisma__PackClient<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Packs.
+     * @param {PackCreateManyArgs} args - Arguments to create many Packs.
+     * @example
+     * // Create many Packs
+     * const pack = await prisma.pack.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PackCreateManyArgs>(args?: SelectSubset<T, PackCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Packs and returns the data saved in the database.
+     * @param {PackCreateManyAndReturnArgs} args - Arguments to create many Packs.
+     * @example
+     * // Create many Packs
+     * const pack = await prisma.pack.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Packs and only return the `id`
+     * const packWithIdOnly = await prisma.pack.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PackCreateManyAndReturnArgs>(args?: SelectSubset<T, PackCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Pack.
+     * @param {PackDeleteArgs} args - Arguments to delete one Pack.
+     * @example
+     * // Delete one Pack
+     * const Pack = await prisma.pack.delete({
+     *   where: {
+     *     // ... filter to delete one Pack
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PackDeleteArgs>(args: SelectSubset<T, PackDeleteArgs<ExtArgs>>): Prisma__PackClient<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Pack.
+     * @param {PackUpdateArgs} args - Arguments to update one Pack.
+     * @example
+     * // Update one Pack
+     * const pack = await prisma.pack.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PackUpdateArgs>(args: SelectSubset<T, PackUpdateArgs<ExtArgs>>): Prisma__PackClient<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Packs.
+     * @param {PackDeleteManyArgs} args - Arguments to filter Packs to delete.
+     * @example
+     * // Delete a few Packs
+     * const { count } = await prisma.pack.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PackDeleteManyArgs>(args?: SelectSubset<T, PackDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Packs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Packs
+     * const pack = await prisma.pack.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PackUpdateManyArgs>(args: SelectSubset<T, PackUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Packs and returns the data updated in the database.
+     * @param {PackUpdateManyAndReturnArgs} args - Arguments to update many Packs.
+     * @example
+     * // Update many Packs
+     * const pack = await prisma.pack.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Packs and only return the `id`
+     * const packWithIdOnly = await prisma.pack.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PackUpdateManyAndReturnArgs>(args: SelectSubset<T, PackUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Pack.
+     * @param {PackUpsertArgs} args - Arguments to update or create a Pack.
+     * @example
+     * // Update or create a Pack
+     * const pack = await prisma.pack.upsert({
+     *   create: {
+     *     // ... data to create a Pack
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Pack we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PackUpsertArgs>(args: SelectSubset<T, PackUpsertArgs<ExtArgs>>): Prisma__PackClient<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Packs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackCountArgs} args - Arguments to filter Packs to count.
+     * @example
+     * // Count the number of Packs
+     * const count = await prisma.pack.count({
+     *   where: {
+     *     // ... the filter for the Packs we want to count
+     *   }
+     * })
+    **/
+    count<T extends PackCountArgs>(
+      args?: Subset<T, PackCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PackCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Pack.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PackAggregateArgs>(args: Subset<T, PackAggregateArgs>): Prisma.PrismaPromise<GetPackAggregateType<T>>
+
+    /**
+     * Group by Pack.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PackGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PackGroupByArgs['orderBy'] }
+        : { orderBy?: PackGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PackGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPackGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Pack model
+   */
+  readonly fields: PackFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Pack.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PackClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    packPrompts<T extends Pack$packPromptsArgs<ExtArgs> = {}>(args?: Subset<T, Pack$packPromptsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Pack model
+   */
+  interface PackFieldRefs {
+    readonly id: FieldRef<"Pack", 'String'>
+    readonly name: FieldRef<"Pack", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Pack findUnique
+   */
+  export type PackFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackInclude<ExtArgs> | null
+    /**
+     * Filter, which Pack to fetch.
+     */
+    where: PackWhereUniqueInput
+  }
+
+  /**
+   * Pack findUniqueOrThrow
+   */
+  export type PackFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackInclude<ExtArgs> | null
+    /**
+     * Filter, which Pack to fetch.
+     */
+    where: PackWhereUniqueInput
+  }
+
+  /**
+   * Pack findFirst
+   */
+  export type PackFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackInclude<ExtArgs> | null
+    /**
+     * Filter, which Pack to fetch.
+     */
+    where?: PackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Packs to fetch.
+     */
+    orderBy?: PackOrderByWithRelationInput | PackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Packs.
+     */
+    cursor?: PackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Packs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Packs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Packs.
+     */
+    distinct?: PackScalarFieldEnum | PackScalarFieldEnum[]
+  }
+
+  /**
+   * Pack findFirstOrThrow
+   */
+  export type PackFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackInclude<ExtArgs> | null
+    /**
+     * Filter, which Pack to fetch.
+     */
+    where?: PackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Packs to fetch.
+     */
+    orderBy?: PackOrderByWithRelationInput | PackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Packs.
+     */
+    cursor?: PackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Packs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Packs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Packs.
+     */
+    distinct?: PackScalarFieldEnum | PackScalarFieldEnum[]
+  }
+
+  /**
+   * Pack findMany
+   */
+  export type PackFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackInclude<ExtArgs> | null
+    /**
+     * Filter, which Packs to fetch.
+     */
+    where?: PackWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Packs to fetch.
+     */
+    orderBy?: PackOrderByWithRelationInput | PackOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Packs.
+     */
+    cursor?: PackWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Packs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Packs.
+     */
+    skip?: number
+    distinct?: PackScalarFieldEnum | PackScalarFieldEnum[]
+  }
+
+  /**
+   * Pack create
+   */
+  export type PackCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Pack.
+     */
+    data: XOR<PackCreateInput, PackUncheckedCreateInput>
+  }
+
+  /**
+   * Pack createMany
+   */
+  export type PackCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Packs.
+     */
+    data: PackCreateManyInput | PackCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Pack createManyAndReturn
+   */
+  export type PackCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * The data used to create many Packs.
+     */
+    data: PackCreateManyInput | PackCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Pack update
+   */
+  export type PackUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Pack.
+     */
+    data: XOR<PackUpdateInput, PackUncheckedUpdateInput>
+    /**
+     * Choose, which Pack to update.
+     */
+    where: PackWhereUniqueInput
+  }
+
+  /**
+   * Pack updateMany
+   */
+  export type PackUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Packs.
+     */
+    data: XOR<PackUpdateManyMutationInput, PackUncheckedUpdateManyInput>
+    /**
+     * Filter which Packs to update
+     */
+    where?: PackWhereInput
+    /**
+     * Limit how many Packs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Pack updateManyAndReturn
+   */
+  export type PackUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * The data used to update Packs.
+     */
+    data: XOR<PackUpdateManyMutationInput, PackUncheckedUpdateManyInput>
+    /**
+     * Filter which Packs to update
+     */
+    where?: PackWhereInput
+    /**
+     * Limit how many Packs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Pack upsert
+   */
+  export type PackUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Pack to update in case it exists.
+     */
+    where: PackWhereUniqueInput
+    /**
+     * In case the Pack found by the `where` argument doesn't exist, create a new Pack with this data.
+     */
+    create: XOR<PackCreateInput, PackUncheckedCreateInput>
+    /**
+     * In case the Pack was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PackUpdateInput, PackUncheckedUpdateInput>
+  }
+
+  /**
+   * Pack delete
+   */
+  export type PackDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackInclude<ExtArgs> | null
+    /**
+     * Filter which Pack to delete.
+     */
+    where: PackWhereUniqueInput
+  }
+
+  /**
+   * Pack deleteMany
+   */
+  export type PackDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Packs to delete
+     */
+    where?: PackWhereInput
+    /**
+     * Limit how many Packs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Pack.packPrompts
+   */
+  export type Pack$packPromptsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsInclude<ExtArgs> | null
+    where?: PackPromptsWhereInput
+    orderBy?: PackPromptsOrderByWithRelationInput | PackPromptsOrderByWithRelationInput[]
+    cursor?: PackPromptsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PackPromptsScalarFieldEnum | PackPromptsScalarFieldEnum[]
+  }
+
+  /**
+   * Pack without action
+   */
+  export type PackDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pack
+     */
+    select?: PackSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pack
+     */
+    omit?: PackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PackPrompts
+   */
+
+  export type AggregatePackPrompts = {
+    _count: PackPromptsCountAggregateOutputType | null
+    _min: PackPromptsMinAggregateOutputType | null
+    _max: PackPromptsMaxAggregateOutputType | null
+  }
+
+  export type PackPromptsMinAggregateOutputType = {
+    id: string | null
+    prompt: string | null
+    packId: string | null
+  }
+
+  export type PackPromptsMaxAggregateOutputType = {
+    id: string | null
+    prompt: string | null
+    packId: string | null
+  }
+
+  export type PackPromptsCountAggregateOutputType = {
+    id: number
+    prompt: number
+    packId: number
+    _all: number
+  }
+
+
+  export type PackPromptsMinAggregateInputType = {
+    id?: true
+    prompt?: true
+    packId?: true
+  }
+
+  export type PackPromptsMaxAggregateInputType = {
+    id?: true
+    prompt?: true
+    packId?: true
+  }
+
+  export type PackPromptsCountAggregateInputType = {
+    id?: true
+    prompt?: true
+    packId?: true
+    _all?: true
+  }
+
+  export type PackPromptsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PackPrompts to aggregate.
+     */
+    where?: PackPromptsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PackPrompts to fetch.
+     */
+    orderBy?: PackPromptsOrderByWithRelationInput | PackPromptsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PackPromptsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PackPrompts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PackPrompts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PackPrompts
+    **/
+    _count?: true | PackPromptsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PackPromptsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PackPromptsMaxAggregateInputType
+  }
+
+  export type GetPackPromptsAggregateType<T extends PackPromptsAggregateArgs> = {
+        [P in keyof T & keyof AggregatePackPrompts]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePackPrompts[P]>
+      : GetScalarType<T[P], AggregatePackPrompts[P]>
+  }
+
+
+
+
+  export type PackPromptsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PackPromptsWhereInput
+    orderBy?: PackPromptsOrderByWithAggregationInput | PackPromptsOrderByWithAggregationInput[]
+    by: PackPromptsScalarFieldEnum[] | PackPromptsScalarFieldEnum
+    having?: PackPromptsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PackPromptsCountAggregateInputType | true
+    _min?: PackPromptsMinAggregateInputType
+    _max?: PackPromptsMaxAggregateInputType
+  }
+
+  export type PackPromptsGroupByOutputType = {
+    id: string
+    prompt: string
+    packId: string
+    _count: PackPromptsCountAggregateOutputType | null
+    _min: PackPromptsMinAggregateOutputType | null
+    _max: PackPromptsMaxAggregateOutputType | null
+  }
+
+  type GetPackPromptsGroupByPayload<T extends PackPromptsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PackPromptsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PackPromptsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PackPromptsGroupByOutputType[P]>
+            : GetScalarType<T[P], PackPromptsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PackPromptsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    prompt?: boolean
+    packId?: boolean
+    pack?: boolean | PackDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["packPrompts"]>
+
+  export type PackPromptsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    prompt?: boolean
+    packId?: boolean
+    pack?: boolean | PackDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["packPrompts"]>
+
+  export type PackPromptsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    prompt?: boolean
+    packId?: boolean
+    pack?: boolean | PackDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["packPrompts"]>
+
+  export type PackPromptsSelectScalar = {
+    id?: boolean
+    prompt?: boolean
+    packId?: boolean
+  }
+
+  export type PackPromptsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "prompt" | "packId", ExtArgs["result"]["packPrompts"]>
+  export type PackPromptsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pack?: boolean | PackDefaultArgs<ExtArgs>
+  }
+  export type PackPromptsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pack?: boolean | PackDefaultArgs<ExtArgs>
+  }
+  export type PackPromptsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pack?: boolean | PackDefaultArgs<ExtArgs>
+  }
+
+  export type $PackPromptsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PackPrompts"
+    objects: {
+      pack: Prisma.$PackPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      prompt: string
+      packId: string
+    }, ExtArgs["result"]["packPrompts"]>
+    composites: {}
+  }
+
+  type PackPromptsGetPayload<S extends boolean | null | undefined | PackPromptsDefaultArgs> = $Result.GetResult<Prisma.$PackPromptsPayload, S>
+
+  type PackPromptsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PackPromptsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PackPromptsCountAggregateInputType | true
+    }
+
+  export interface PackPromptsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PackPrompts'], meta: { name: 'PackPrompts' } }
+    /**
+     * Find zero or one PackPrompts that matches the filter.
+     * @param {PackPromptsFindUniqueArgs} args - Arguments to find a PackPrompts
+     * @example
+     * // Get one PackPrompts
+     * const packPrompts = await prisma.packPrompts.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PackPromptsFindUniqueArgs>(args: SelectSubset<T, PackPromptsFindUniqueArgs<ExtArgs>>): Prisma__PackPromptsClient<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PackPrompts that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PackPromptsFindUniqueOrThrowArgs} args - Arguments to find a PackPrompts
+     * @example
+     * // Get one PackPrompts
+     * const packPrompts = await prisma.packPrompts.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PackPromptsFindUniqueOrThrowArgs>(args: SelectSubset<T, PackPromptsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PackPromptsClient<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PackPrompts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackPromptsFindFirstArgs} args - Arguments to find a PackPrompts
+     * @example
+     * // Get one PackPrompts
+     * const packPrompts = await prisma.packPrompts.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PackPromptsFindFirstArgs>(args?: SelectSubset<T, PackPromptsFindFirstArgs<ExtArgs>>): Prisma__PackPromptsClient<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PackPrompts that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackPromptsFindFirstOrThrowArgs} args - Arguments to find a PackPrompts
+     * @example
+     * // Get one PackPrompts
+     * const packPrompts = await prisma.packPrompts.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PackPromptsFindFirstOrThrowArgs>(args?: SelectSubset<T, PackPromptsFindFirstOrThrowArgs<ExtArgs>>): Prisma__PackPromptsClient<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PackPrompts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackPromptsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PackPrompts
+     * const packPrompts = await prisma.packPrompts.findMany()
+     * 
+     * // Get first 10 PackPrompts
+     * const packPrompts = await prisma.packPrompts.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const packPromptsWithIdOnly = await prisma.packPrompts.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PackPromptsFindManyArgs>(args?: SelectSubset<T, PackPromptsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PackPrompts.
+     * @param {PackPromptsCreateArgs} args - Arguments to create a PackPrompts.
+     * @example
+     * // Create one PackPrompts
+     * const PackPrompts = await prisma.packPrompts.create({
+     *   data: {
+     *     // ... data to create a PackPrompts
+     *   }
+     * })
+     * 
+     */
+    create<T extends PackPromptsCreateArgs>(args: SelectSubset<T, PackPromptsCreateArgs<ExtArgs>>): Prisma__PackPromptsClient<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PackPrompts.
+     * @param {PackPromptsCreateManyArgs} args - Arguments to create many PackPrompts.
+     * @example
+     * // Create many PackPrompts
+     * const packPrompts = await prisma.packPrompts.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PackPromptsCreateManyArgs>(args?: SelectSubset<T, PackPromptsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PackPrompts and returns the data saved in the database.
+     * @param {PackPromptsCreateManyAndReturnArgs} args - Arguments to create many PackPrompts.
+     * @example
+     * // Create many PackPrompts
+     * const packPrompts = await prisma.packPrompts.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PackPrompts and only return the `id`
+     * const packPromptsWithIdOnly = await prisma.packPrompts.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PackPromptsCreateManyAndReturnArgs>(args?: SelectSubset<T, PackPromptsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PackPrompts.
+     * @param {PackPromptsDeleteArgs} args - Arguments to delete one PackPrompts.
+     * @example
+     * // Delete one PackPrompts
+     * const PackPrompts = await prisma.packPrompts.delete({
+     *   where: {
+     *     // ... filter to delete one PackPrompts
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PackPromptsDeleteArgs>(args: SelectSubset<T, PackPromptsDeleteArgs<ExtArgs>>): Prisma__PackPromptsClient<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PackPrompts.
+     * @param {PackPromptsUpdateArgs} args - Arguments to update one PackPrompts.
+     * @example
+     * // Update one PackPrompts
+     * const packPrompts = await prisma.packPrompts.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PackPromptsUpdateArgs>(args: SelectSubset<T, PackPromptsUpdateArgs<ExtArgs>>): Prisma__PackPromptsClient<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PackPrompts.
+     * @param {PackPromptsDeleteManyArgs} args - Arguments to filter PackPrompts to delete.
+     * @example
+     * // Delete a few PackPrompts
+     * const { count } = await prisma.packPrompts.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PackPromptsDeleteManyArgs>(args?: SelectSubset<T, PackPromptsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PackPrompts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackPromptsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PackPrompts
+     * const packPrompts = await prisma.packPrompts.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PackPromptsUpdateManyArgs>(args: SelectSubset<T, PackPromptsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PackPrompts and returns the data updated in the database.
+     * @param {PackPromptsUpdateManyAndReturnArgs} args - Arguments to update many PackPrompts.
+     * @example
+     * // Update many PackPrompts
+     * const packPrompts = await prisma.packPrompts.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PackPrompts and only return the `id`
+     * const packPromptsWithIdOnly = await prisma.packPrompts.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PackPromptsUpdateManyAndReturnArgs>(args: SelectSubset<T, PackPromptsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PackPrompts.
+     * @param {PackPromptsUpsertArgs} args - Arguments to update or create a PackPrompts.
+     * @example
+     * // Update or create a PackPrompts
+     * const packPrompts = await prisma.packPrompts.upsert({
+     *   create: {
+     *     // ... data to create a PackPrompts
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PackPrompts we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PackPromptsUpsertArgs>(args: SelectSubset<T, PackPromptsUpsertArgs<ExtArgs>>): Prisma__PackPromptsClient<$Result.GetResult<Prisma.$PackPromptsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PackPrompts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackPromptsCountArgs} args - Arguments to filter PackPrompts to count.
+     * @example
+     * // Count the number of PackPrompts
+     * const count = await prisma.packPrompts.count({
+     *   where: {
+     *     // ... the filter for the PackPrompts we want to count
+     *   }
+     * })
+    **/
+    count<T extends PackPromptsCountArgs>(
+      args?: Subset<T, PackPromptsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PackPromptsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PackPrompts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackPromptsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PackPromptsAggregateArgs>(args: Subset<T, PackPromptsAggregateArgs>): Prisma.PrismaPromise<GetPackPromptsAggregateType<T>>
+
+    /**
+     * Group by PackPrompts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PackPromptsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PackPromptsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PackPromptsGroupByArgs['orderBy'] }
+        : { orderBy?: PackPromptsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PackPromptsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPackPromptsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PackPrompts model
+   */
+  readonly fields: PackPromptsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PackPrompts.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PackPromptsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    pack<T extends PackDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PackDefaultArgs<ExtArgs>>): Prisma__PackClient<$Result.GetResult<Prisma.$PackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PackPrompts model
+   */
+  interface PackPromptsFieldRefs {
+    readonly id: FieldRef<"PackPrompts", 'String'>
+    readonly prompt: FieldRef<"PackPrompts", 'String'>
+    readonly packId: FieldRef<"PackPrompts", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PackPrompts findUnique
+   */
+  export type PackPromptsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsInclude<ExtArgs> | null
+    /**
+     * Filter, which PackPrompts to fetch.
+     */
+    where: PackPromptsWhereUniqueInput
+  }
+
+  /**
+   * PackPrompts findUniqueOrThrow
+   */
+  export type PackPromptsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsInclude<ExtArgs> | null
+    /**
+     * Filter, which PackPrompts to fetch.
+     */
+    where: PackPromptsWhereUniqueInput
+  }
+
+  /**
+   * PackPrompts findFirst
+   */
+  export type PackPromptsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsInclude<ExtArgs> | null
+    /**
+     * Filter, which PackPrompts to fetch.
+     */
+    where?: PackPromptsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PackPrompts to fetch.
+     */
+    orderBy?: PackPromptsOrderByWithRelationInput | PackPromptsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PackPrompts.
+     */
+    cursor?: PackPromptsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PackPrompts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PackPrompts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PackPrompts.
+     */
+    distinct?: PackPromptsScalarFieldEnum | PackPromptsScalarFieldEnum[]
+  }
+
+  /**
+   * PackPrompts findFirstOrThrow
+   */
+  export type PackPromptsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsInclude<ExtArgs> | null
+    /**
+     * Filter, which PackPrompts to fetch.
+     */
+    where?: PackPromptsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PackPrompts to fetch.
+     */
+    orderBy?: PackPromptsOrderByWithRelationInput | PackPromptsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PackPrompts.
+     */
+    cursor?: PackPromptsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PackPrompts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PackPrompts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PackPrompts.
+     */
+    distinct?: PackPromptsScalarFieldEnum | PackPromptsScalarFieldEnum[]
+  }
+
+  /**
+   * PackPrompts findMany
+   */
+  export type PackPromptsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsInclude<ExtArgs> | null
+    /**
+     * Filter, which PackPrompts to fetch.
+     */
+    where?: PackPromptsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PackPrompts to fetch.
+     */
+    orderBy?: PackPromptsOrderByWithRelationInput | PackPromptsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PackPrompts.
+     */
+    cursor?: PackPromptsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PackPrompts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PackPrompts.
+     */
+    skip?: number
+    distinct?: PackPromptsScalarFieldEnum | PackPromptsScalarFieldEnum[]
+  }
+
+  /**
+   * PackPrompts create
+   */
+  export type PackPromptsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PackPrompts.
+     */
+    data: XOR<PackPromptsCreateInput, PackPromptsUncheckedCreateInput>
+  }
+
+  /**
+   * PackPrompts createMany
+   */
+  export type PackPromptsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PackPrompts.
+     */
+    data: PackPromptsCreateManyInput | PackPromptsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PackPrompts createManyAndReturn
+   */
+  export type PackPromptsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * The data used to create many PackPrompts.
+     */
+    data: PackPromptsCreateManyInput | PackPromptsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PackPrompts update
+   */
+  export type PackPromptsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PackPrompts.
+     */
+    data: XOR<PackPromptsUpdateInput, PackPromptsUncheckedUpdateInput>
+    /**
+     * Choose, which PackPrompts to update.
+     */
+    where: PackPromptsWhereUniqueInput
+  }
+
+  /**
+   * PackPrompts updateMany
+   */
+  export type PackPromptsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PackPrompts.
+     */
+    data: XOR<PackPromptsUpdateManyMutationInput, PackPromptsUncheckedUpdateManyInput>
+    /**
+     * Filter which PackPrompts to update
+     */
+    where?: PackPromptsWhereInput
+    /**
+     * Limit how many PackPrompts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PackPrompts updateManyAndReturn
+   */
+  export type PackPromptsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * The data used to update PackPrompts.
+     */
+    data: XOR<PackPromptsUpdateManyMutationInput, PackPromptsUncheckedUpdateManyInput>
+    /**
+     * Filter which PackPrompts to update
+     */
+    where?: PackPromptsWhereInput
+    /**
+     * Limit how many PackPrompts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PackPrompts upsert
+   */
+  export type PackPromptsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PackPrompts to update in case it exists.
+     */
+    where: PackPromptsWhereUniqueInput
+    /**
+     * In case the PackPrompts found by the `where` argument doesn't exist, create a new PackPrompts with this data.
+     */
+    create: XOR<PackPromptsCreateInput, PackPromptsUncheckedCreateInput>
+    /**
+     * In case the PackPrompts was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PackPromptsUpdateInput, PackPromptsUncheckedUpdateInput>
+  }
+
+  /**
+   * PackPrompts delete
+   */
+  export type PackPromptsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsInclude<ExtArgs> | null
+    /**
+     * Filter which PackPrompts to delete.
+     */
+    where: PackPromptsWhereUniqueInput
+  }
+
+  /**
+   * PackPrompts deleteMany
+   */
+  export type PackPromptsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PackPrompts to delete
+     */
+    where?: PackPromptsWhereInput
+    /**
+     * Limit how many PackPrompts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PackPrompts without action
+   */
+  export type PackPromptsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PackPrompts
+     */
+    select?: PackPromptsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PackPrompts
+     */
+    omit?: PackPromptsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PackPromptsInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5670,6 +10622,59 @@ export namespace Prisma {
   };
 
   export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
+
+
+  export const ModelScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    name: 'name',
+    age: 'age',
+    type: 'type',
+    trigerWord: 'trigerWord',
+    tensorPath: 'tensorPath',
+    status: 'status',
+    ethinicity: 'ethinicity',
+    eyeColor: 'eyeColor',
+    bold: 'bold',
+    falAiRequest_id: 'falAiRequest_id',
+    zipUrl: 'zipUrl',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ModelScalarFieldEnum = (typeof ModelScalarFieldEnum)[keyof typeof ModelScalarFieldEnum]
+
+
+  export const OutputImageScalarFieldEnum: {
+    id: 'id',
+    imageUrl: 'imageUrl',
+    modelId: 'modelId',
+    userId: 'userId',
+    falAiRequest_id: 'falAiRequest_id',
+    prompt: 'prompt',
+    status: 'status',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type OutputImageScalarFieldEnum = (typeof OutputImageScalarFieldEnum)[keyof typeof OutputImageScalarFieldEnum]
+
+
+  export const PackScalarFieldEnum: {
+    id: 'id',
+    name: 'name'
+  };
+
+  export type PackScalarFieldEnum = (typeof PackScalarFieldEnum)[keyof typeof PackScalarFieldEnum]
+
+
+  export const PackPromptsScalarFieldEnum: {
+    id: 'id',
+    prompt: 'prompt',
+    packId: 'packId'
+  };
+
+  export type PackPromptsScalarFieldEnum = (typeof PackPromptsScalarFieldEnum)[keyof typeof PackPromptsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5748,6 +10753,76 @@ export namespace Prisma {
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
+
+
+  /**
+   * Reference to a field of type 'Type'
+   */
+  export type EnumTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Type'>
+    
+
+
+  /**
+   * Reference to a field of type 'Type[]'
+   */
+  export type ListEnumTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Type[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Status'
+   */
+  export type EnumStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Status'>
+    
+
+
+  /**
+   * Reference to a field of type 'Status[]'
+   */
+  export type ListEnumStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Status[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Ethinicity'
+   */
+  export type EnumEthinicityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Ethinicity'>
+    
+
+
+  /**
+   * Reference to a field of type 'Ethinicity[]'
+   */
+  export type ListEnumEthinicityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Ethinicity[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'EyeColor'
+   */
+  export type EnumEyeColorFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EyeColor'>
+    
+
+
+  /**
+   * Reference to a field of type 'EyeColor[]'
+   */
+  export type ListEnumEyeColorFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EyeColor[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
   /**
    * Deep Input Types
    */
@@ -5767,6 +10842,7 @@ export namespace Prisma {
     twoFactorEnabled?: BoolFilter<"User"> | boolean
     Session?: SessionListRelationFilter
     Account?: AccountListRelationFilter
+    models?: ModelListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -5780,6 +10856,7 @@ export namespace Prisma {
     twoFactorEnabled?: SortOrder
     Session?: SessionOrderByRelationAggregateInput
     Account?: AccountOrderByRelationAggregateInput
+    models?: ModelOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -5796,6 +10873,7 @@ export namespace Prisma {
     twoFactorEnabled?: BoolFilter<"User"> | boolean
     Session?: SessionListRelationFilter
     Account?: AccountListRelationFilter
+    models?: ModelListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -6053,6 +11131,276 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Verification"> | Date | string | null
   }
 
+  export type ModelWhereInput = {
+    AND?: ModelWhereInput | ModelWhereInput[]
+    OR?: ModelWhereInput[]
+    NOT?: ModelWhereInput | ModelWhereInput[]
+    id?: StringFilter<"Model"> | string
+    userId?: StringFilter<"Model"> | string
+    name?: StringFilter<"Model"> | string
+    age?: IntFilter<"Model"> | number
+    type?: EnumTypeFilter<"Model"> | $Enums.Type
+    trigerWord?: StringNullableFilter<"Model"> | string | null
+    tensorPath?: StringNullableFilter<"Model"> | string | null
+    status?: EnumStatusFilter<"Model"> | $Enums.Status
+    ethinicity?: EnumEthinicityFilter<"Model"> | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFilter<"Model"> | $Enums.EyeColor
+    bold?: BoolFilter<"Model"> | boolean
+    falAiRequest_id?: StringNullableFilter<"Model"> | string | null
+    zipUrl?: StringFilter<"Model"> | string
+    createdAt?: DateTimeFilter<"Model"> | Date | string
+    updatedAt?: DateTimeFilter<"Model"> | Date | string
+    outputImages?: OutputImageListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type ModelOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    age?: SortOrder
+    type?: SortOrder
+    trigerWord?: SortOrderInput | SortOrder
+    tensorPath?: SortOrderInput | SortOrder
+    status?: SortOrder
+    ethinicity?: SortOrder
+    eyeColor?: SortOrder
+    bold?: SortOrder
+    falAiRequest_id?: SortOrderInput | SortOrder
+    zipUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    outputImages?: OutputImageOrderByRelationAggregateInput
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type ModelWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ModelWhereInput | ModelWhereInput[]
+    OR?: ModelWhereInput[]
+    NOT?: ModelWhereInput | ModelWhereInput[]
+    userId?: StringFilter<"Model"> | string
+    name?: StringFilter<"Model"> | string
+    age?: IntFilter<"Model"> | number
+    type?: EnumTypeFilter<"Model"> | $Enums.Type
+    trigerWord?: StringNullableFilter<"Model"> | string | null
+    tensorPath?: StringNullableFilter<"Model"> | string | null
+    status?: EnumStatusFilter<"Model"> | $Enums.Status
+    ethinicity?: EnumEthinicityFilter<"Model"> | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFilter<"Model"> | $Enums.EyeColor
+    bold?: BoolFilter<"Model"> | boolean
+    falAiRequest_id?: StringNullableFilter<"Model"> | string | null
+    zipUrl?: StringFilter<"Model"> | string
+    createdAt?: DateTimeFilter<"Model"> | Date | string
+    updatedAt?: DateTimeFilter<"Model"> | Date | string
+    outputImages?: OutputImageListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type ModelOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    age?: SortOrder
+    type?: SortOrder
+    trigerWord?: SortOrderInput | SortOrder
+    tensorPath?: SortOrderInput | SortOrder
+    status?: SortOrder
+    ethinicity?: SortOrder
+    eyeColor?: SortOrder
+    bold?: SortOrder
+    falAiRequest_id?: SortOrderInput | SortOrder
+    zipUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ModelCountOrderByAggregateInput
+    _avg?: ModelAvgOrderByAggregateInput
+    _max?: ModelMaxOrderByAggregateInput
+    _min?: ModelMinOrderByAggregateInput
+    _sum?: ModelSumOrderByAggregateInput
+  }
+
+  export type ModelScalarWhereWithAggregatesInput = {
+    AND?: ModelScalarWhereWithAggregatesInput | ModelScalarWhereWithAggregatesInput[]
+    OR?: ModelScalarWhereWithAggregatesInput[]
+    NOT?: ModelScalarWhereWithAggregatesInput | ModelScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Model"> | string
+    userId?: StringWithAggregatesFilter<"Model"> | string
+    name?: StringWithAggregatesFilter<"Model"> | string
+    age?: IntWithAggregatesFilter<"Model"> | number
+    type?: EnumTypeWithAggregatesFilter<"Model"> | $Enums.Type
+    trigerWord?: StringNullableWithAggregatesFilter<"Model"> | string | null
+    tensorPath?: StringNullableWithAggregatesFilter<"Model"> | string | null
+    status?: EnumStatusWithAggregatesFilter<"Model"> | $Enums.Status
+    ethinicity?: EnumEthinicityWithAggregatesFilter<"Model"> | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorWithAggregatesFilter<"Model"> | $Enums.EyeColor
+    bold?: BoolWithAggregatesFilter<"Model"> | boolean
+    falAiRequest_id?: StringNullableWithAggregatesFilter<"Model"> | string | null
+    zipUrl?: StringWithAggregatesFilter<"Model"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Model"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Model"> | Date | string
+  }
+
+  export type OutputImageWhereInput = {
+    AND?: OutputImageWhereInput | OutputImageWhereInput[]
+    OR?: OutputImageWhereInput[]
+    NOT?: OutputImageWhereInput | OutputImageWhereInput[]
+    id?: StringFilter<"OutputImage"> | string
+    imageUrl?: StringFilter<"OutputImage"> | string
+    modelId?: StringFilter<"OutputImage"> | string
+    userId?: StringFilter<"OutputImage"> | string
+    falAiRequest_id?: StringNullableFilter<"OutputImage"> | string | null
+    prompt?: StringFilter<"OutputImage"> | string
+    status?: EnumStatusFilter<"OutputImage"> | $Enums.Status
+    createdAt?: DateTimeFilter<"OutputImage"> | Date | string
+    updatedAt?: DateTimeFilter<"OutputImage"> | Date | string
+    model?: XOR<ModelScalarRelationFilter, ModelWhereInput>
+  }
+
+  export type OutputImageOrderByWithRelationInput = {
+    id?: SortOrder
+    imageUrl?: SortOrder
+    modelId?: SortOrder
+    userId?: SortOrder
+    falAiRequest_id?: SortOrderInput | SortOrder
+    prompt?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    model?: ModelOrderByWithRelationInput
+  }
+
+  export type OutputImageWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: OutputImageWhereInput | OutputImageWhereInput[]
+    OR?: OutputImageWhereInput[]
+    NOT?: OutputImageWhereInput | OutputImageWhereInput[]
+    imageUrl?: StringFilter<"OutputImage"> | string
+    modelId?: StringFilter<"OutputImage"> | string
+    userId?: StringFilter<"OutputImage"> | string
+    falAiRequest_id?: StringNullableFilter<"OutputImage"> | string | null
+    prompt?: StringFilter<"OutputImage"> | string
+    status?: EnumStatusFilter<"OutputImage"> | $Enums.Status
+    createdAt?: DateTimeFilter<"OutputImage"> | Date | string
+    updatedAt?: DateTimeFilter<"OutputImage"> | Date | string
+    model?: XOR<ModelScalarRelationFilter, ModelWhereInput>
+  }, "id">
+
+  export type OutputImageOrderByWithAggregationInput = {
+    id?: SortOrder
+    imageUrl?: SortOrder
+    modelId?: SortOrder
+    userId?: SortOrder
+    falAiRequest_id?: SortOrderInput | SortOrder
+    prompt?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: OutputImageCountOrderByAggregateInput
+    _max?: OutputImageMaxOrderByAggregateInput
+    _min?: OutputImageMinOrderByAggregateInput
+  }
+
+  export type OutputImageScalarWhereWithAggregatesInput = {
+    AND?: OutputImageScalarWhereWithAggregatesInput | OutputImageScalarWhereWithAggregatesInput[]
+    OR?: OutputImageScalarWhereWithAggregatesInput[]
+    NOT?: OutputImageScalarWhereWithAggregatesInput | OutputImageScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"OutputImage"> | string
+    imageUrl?: StringWithAggregatesFilter<"OutputImage"> | string
+    modelId?: StringWithAggregatesFilter<"OutputImage"> | string
+    userId?: StringWithAggregatesFilter<"OutputImage"> | string
+    falAiRequest_id?: StringNullableWithAggregatesFilter<"OutputImage"> | string | null
+    prompt?: StringWithAggregatesFilter<"OutputImage"> | string
+    status?: EnumStatusWithAggregatesFilter<"OutputImage"> | $Enums.Status
+    createdAt?: DateTimeWithAggregatesFilter<"OutputImage"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"OutputImage"> | Date | string
+  }
+
+  export type PackWhereInput = {
+    AND?: PackWhereInput | PackWhereInput[]
+    OR?: PackWhereInput[]
+    NOT?: PackWhereInput | PackWhereInput[]
+    id?: StringFilter<"Pack"> | string
+    name?: StringFilter<"Pack"> | string
+    packPrompts?: PackPromptsListRelationFilter
+  }
+
+  export type PackOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    packPrompts?: PackPromptsOrderByRelationAggregateInput
+  }
+
+  export type PackWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PackWhereInput | PackWhereInput[]
+    OR?: PackWhereInput[]
+    NOT?: PackWhereInput | PackWhereInput[]
+    name?: StringFilter<"Pack"> | string
+    packPrompts?: PackPromptsListRelationFilter
+  }, "id">
+
+  export type PackOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    _count?: PackCountOrderByAggregateInput
+    _max?: PackMaxOrderByAggregateInput
+    _min?: PackMinOrderByAggregateInput
+  }
+
+  export type PackScalarWhereWithAggregatesInput = {
+    AND?: PackScalarWhereWithAggregatesInput | PackScalarWhereWithAggregatesInput[]
+    OR?: PackScalarWhereWithAggregatesInput[]
+    NOT?: PackScalarWhereWithAggregatesInput | PackScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Pack"> | string
+    name?: StringWithAggregatesFilter<"Pack"> | string
+  }
+
+  export type PackPromptsWhereInput = {
+    AND?: PackPromptsWhereInput | PackPromptsWhereInput[]
+    OR?: PackPromptsWhereInput[]
+    NOT?: PackPromptsWhereInput | PackPromptsWhereInput[]
+    id?: StringFilter<"PackPrompts"> | string
+    prompt?: StringFilter<"PackPrompts"> | string
+    packId?: StringFilter<"PackPrompts"> | string
+    pack?: XOR<PackScalarRelationFilter, PackWhereInput>
+  }
+
+  export type PackPromptsOrderByWithRelationInput = {
+    id?: SortOrder
+    prompt?: SortOrder
+    packId?: SortOrder
+    pack?: PackOrderByWithRelationInput
+  }
+
+  export type PackPromptsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PackPromptsWhereInput | PackPromptsWhereInput[]
+    OR?: PackPromptsWhereInput[]
+    NOT?: PackPromptsWhereInput | PackPromptsWhereInput[]
+    prompt?: StringFilter<"PackPrompts"> | string
+    packId?: StringFilter<"PackPrompts"> | string
+    pack?: XOR<PackScalarRelationFilter, PackWhereInput>
+  }, "id">
+
+  export type PackPromptsOrderByWithAggregationInput = {
+    id?: SortOrder
+    prompt?: SortOrder
+    packId?: SortOrder
+    _count?: PackPromptsCountOrderByAggregateInput
+    _max?: PackPromptsMaxOrderByAggregateInput
+    _min?: PackPromptsMinOrderByAggregateInput
+  }
+
+  export type PackPromptsScalarWhereWithAggregatesInput = {
+    AND?: PackPromptsScalarWhereWithAggregatesInput | PackPromptsScalarWhereWithAggregatesInput[]
+    OR?: PackPromptsScalarWhereWithAggregatesInput[]
+    NOT?: PackPromptsScalarWhereWithAggregatesInput | PackPromptsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PackPrompts"> | string
+    prompt?: StringWithAggregatesFilter<"PackPrompts"> | string
+    packId?: StringWithAggregatesFilter<"PackPrompts"> | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name: string
@@ -6064,6 +11412,7 @@ export namespace Prisma {
     twoFactorEnabled?: boolean
     Session?: SessionCreateNestedManyWithoutUserInput
     Account?: AccountCreateNestedManyWithoutUserInput
+    models?: ModelCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -6077,6 +11426,7 @@ export namespace Prisma {
     twoFactorEnabled?: boolean
     Session?: SessionUncheckedCreateNestedManyWithoutUserInput
     Account?: AccountUncheckedCreateNestedManyWithoutUserInput
+    models?: ModelUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -6090,6 +11440,7 @@ export namespace Prisma {
     twoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     Session?: SessionUpdateManyWithoutUserNestedInput
     Account?: AccountUpdateManyWithoutUserNestedInput
+    models?: ModelUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -6103,6 +11454,7 @@ export namespace Prisma {
     twoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     Session?: SessionUncheckedUpdateManyWithoutUserNestedInput
     Account?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    models?: ModelUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -6395,6 +11747,298 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type ModelCreateInput = {
+    id?: string
+    name: string
+    age: number
+    type: $Enums.Type
+    trigerWord?: string | null
+    tensorPath?: string | null
+    status?: $Enums.Status
+    ethinicity: $Enums.Ethinicity
+    eyeColor: $Enums.EyeColor
+    bold?: boolean
+    falAiRequest_id?: string | null
+    zipUrl: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    outputImages?: OutputImageCreateNestedManyWithoutModelInput
+    user: UserCreateNestedOneWithoutModelsInput
+  }
+
+  export type ModelUncheckedCreateInput = {
+    id?: string
+    userId: string
+    name: string
+    age: number
+    type: $Enums.Type
+    trigerWord?: string | null
+    tensorPath?: string | null
+    status?: $Enums.Status
+    ethinicity: $Enums.Ethinicity
+    eyeColor: $Enums.EyeColor
+    bold?: boolean
+    falAiRequest_id?: string | null
+    zipUrl: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    outputImages?: OutputImageUncheckedCreateNestedManyWithoutModelInput
+  }
+
+  export type ModelUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
+    tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
+    bold?: BoolFieldUpdateOperationsInput | boolean
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    zipUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    outputImages?: OutputImageUpdateManyWithoutModelNestedInput
+    user?: UserUpdateOneRequiredWithoutModelsNestedInput
+  }
+
+  export type ModelUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
+    tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
+    bold?: BoolFieldUpdateOperationsInput | boolean
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    zipUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    outputImages?: OutputImageUncheckedUpdateManyWithoutModelNestedInput
+  }
+
+  export type ModelCreateManyInput = {
+    id?: string
+    userId: string
+    name: string
+    age: number
+    type: $Enums.Type
+    trigerWord?: string | null
+    tensorPath?: string | null
+    status?: $Enums.Status
+    ethinicity: $Enums.Ethinicity
+    eyeColor: $Enums.EyeColor
+    bold?: boolean
+    falAiRequest_id?: string | null
+    zipUrl: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ModelUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
+    tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
+    bold?: BoolFieldUpdateOperationsInput | boolean
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    zipUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ModelUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
+    tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
+    bold?: BoolFieldUpdateOperationsInput | boolean
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    zipUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OutputImageCreateInput = {
+    id?: string
+    imageUrl: string
+    userId: string
+    falAiRequest_id?: string | null
+    prompt: string
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    model: ModelCreateNestedOneWithoutOutputImagesInput
+  }
+
+  export type OutputImageUncheckedCreateInput = {
+    id?: string
+    imageUrl: string
+    modelId: string
+    userId: string
+    falAiRequest_id?: string | null
+    prompt: string
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OutputImageUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    model?: ModelUpdateOneRequiredWithoutOutputImagesNestedInput
+  }
+
+  export type OutputImageUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
+    modelId?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OutputImageCreateManyInput = {
+    id?: string
+    imageUrl: string
+    modelId: string
+    userId: string
+    falAiRequest_id?: string | null
+    prompt: string
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OutputImageUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OutputImageUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
+    modelId?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PackCreateInput = {
+    id: string
+    name: string
+    packPrompts?: PackPromptsCreateNestedManyWithoutPackInput
+  }
+
+  export type PackUncheckedCreateInput = {
+    id: string
+    name: string
+    packPrompts?: PackPromptsUncheckedCreateNestedManyWithoutPackInput
+  }
+
+  export type PackUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    packPrompts?: PackPromptsUpdateManyWithoutPackNestedInput
+  }
+
+  export type PackUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    packPrompts?: PackPromptsUncheckedUpdateManyWithoutPackNestedInput
+  }
+
+  export type PackCreateManyInput = {
+    id: string
+    name: string
+  }
+
+  export type PackUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PackUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PackPromptsCreateInput = {
+    id: string
+    prompt: string
+    pack: PackCreateNestedOneWithoutPackPromptsInput
+  }
+
+  export type PackPromptsUncheckedCreateInput = {
+    id: string
+    prompt: string
+    packId: string
+  }
+
+  export type PackPromptsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    prompt?: StringFieldUpdateOperationsInput | string
+    pack?: PackUpdateOneRequiredWithoutPackPromptsNestedInput
+  }
+
+  export type PackPromptsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    prompt?: StringFieldUpdateOperationsInput | string
+    packId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PackPromptsCreateManyInput = {
+    id: string
+    prompt: string
+    packId: string
+  }
+
+  export type PackPromptsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    prompt?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PackPromptsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    prompt?: StringFieldUpdateOperationsInput | string
+    packId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -6453,6 +12097,12 @@ export namespace Prisma {
     none?: AccountWhereInput
   }
 
+  export type ModelListRelationFilter = {
+    every?: ModelWhereInput
+    some?: ModelWhereInput
+    none?: ModelWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -6463,6 +12113,10 @@ export namespace Prisma {
   }
 
   export type AccountOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ModelOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -6698,6 +12352,262 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type EnumTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.Type | EnumTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.Type[] | ListEnumTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Type[] | ListEnumTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumTypeFilter<$PrismaModel> | $Enums.Type
+  }
+
+  export type EnumStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusFilter<$PrismaModel> | $Enums.Status
+  }
+
+  export type EnumEthinicityFilter<$PrismaModel = never> = {
+    equals?: $Enums.Ethinicity | EnumEthinicityFieldRefInput<$PrismaModel>
+    in?: $Enums.Ethinicity[] | ListEnumEthinicityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Ethinicity[] | ListEnumEthinicityFieldRefInput<$PrismaModel>
+    not?: NestedEnumEthinicityFilter<$PrismaModel> | $Enums.Ethinicity
+  }
+
+  export type EnumEyeColorFilter<$PrismaModel = never> = {
+    equals?: $Enums.EyeColor | EnumEyeColorFieldRefInput<$PrismaModel>
+    in?: $Enums.EyeColor[] | ListEnumEyeColorFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EyeColor[] | ListEnumEyeColorFieldRefInput<$PrismaModel>
+    not?: NestedEnumEyeColorFilter<$PrismaModel> | $Enums.EyeColor
+  }
+
+  export type OutputImageListRelationFilter = {
+    every?: OutputImageWhereInput
+    some?: OutputImageWhereInput
+    none?: OutputImageWhereInput
+  }
+
+  export type OutputImageOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ModelCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    age?: SortOrder
+    type?: SortOrder
+    trigerWord?: SortOrder
+    tensorPath?: SortOrder
+    status?: SortOrder
+    ethinicity?: SortOrder
+    eyeColor?: SortOrder
+    bold?: SortOrder
+    falAiRequest_id?: SortOrder
+    zipUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ModelAvgOrderByAggregateInput = {
+    age?: SortOrder
+  }
+
+  export type ModelMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    age?: SortOrder
+    type?: SortOrder
+    trigerWord?: SortOrder
+    tensorPath?: SortOrder
+    status?: SortOrder
+    ethinicity?: SortOrder
+    eyeColor?: SortOrder
+    bold?: SortOrder
+    falAiRequest_id?: SortOrder
+    zipUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ModelMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    age?: SortOrder
+    type?: SortOrder
+    trigerWord?: SortOrder
+    tensorPath?: SortOrder
+    status?: SortOrder
+    ethinicity?: SortOrder
+    eyeColor?: SortOrder
+    bold?: SortOrder
+    falAiRequest_id?: SortOrder
+    zipUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ModelSumOrderByAggregateInput = {
+    age?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type EnumTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Type | EnumTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.Type[] | ListEnumTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Type[] | ListEnumTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumTypeWithAggregatesFilter<$PrismaModel> | $Enums.Type
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumTypeFilter<$PrismaModel>
+    _max?: NestedEnumTypeFilter<$PrismaModel>
+  }
+
+  export type EnumStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusWithAggregatesFilter<$PrismaModel> | $Enums.Status
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStatusFilter<$PrismaModel>
+    _max?: NestedEnumStatusFilter<$PrismaModel>
+  }
+
+  export type EnumEthinicityWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Ethinicity | EnumEthinicityFieldRefInput<$PrismaModel>
+    in?: $Enums.Ethinicity[] | ListEnumEthinicityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Ethinicity[] | ListEnumEthinicityFieldRefInput<$PrismaModel>
+    not?: NestedEnumEthinicityWithAggregatesFilter<$PrismaModel> | $Enums.Ethinicity
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEthinicityFilter<$PrismaModel>
+    _max?: NestedEnumEthinicityFilter<$PrismaModel>
+  }
+
+  export type EnumEyeColorWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EyeColor | EnumEyeColorFieldRefInput<$PrismaModel>
+    in?: $Enums.EyeColor[] | ListEnumEyeColorFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EyeColor[] | ListEnumEyeColorFieldRefInput<$PrismaModel>
+    not?: NestedEnumEyeColorWithAggregatesFilter<$PrismaModel> | $Enums.EyeColor
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEyeColorFilter<$PrismaModel>
+    _max?: NestedEnumEyeColorFilter<$PrismaModel>
+  }
+
+  export type ModelScalarRelationFilter = {
+    is?: ModelWhereInput
+    isNot?: ModelWhereInput
+  }
+
+  export type OutputImageCountOrderByAggregateInput = {
+    id?: SortOrder
+    imageUrl?: SortOrder
+    modelId?: SortOrder
+    userId?: SortOrder
+    falAiRequest_id?: SortOrder
+    prompt?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OutputImageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    imageUrl?: SortOrder
+    modelId?: SortOrder
+    userId?: SortOrder
+    falAiRequest_id?: SortOrder
+    prompt?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OutputImageMinOrderByAggregateInput = {
+    id?: SortOrder
+    imageUrl?: SortOrder
+    modelId?: SortOrder
+    userId?: SortOrder
+    falAiRequest_id?: SortOrder
+    prompt?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PackPromptsListRelationFilter = {
+    every?: PackPromptsWhereInput
+    some?: PackPromptsWhereInput
+    none?: PackPromptsWhereInput
+  }
+
+  export type PackPromptsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PackCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type PackMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type PackMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type PackScalarRelationFilter = {
+    is?: PackWhereInput
+    isNot?: PackWhereInput
+  }
+
+  export type PackPromptsCountOrderByAggregateInput = {
+    id?: SortOrder
+    prompt?: SortOrder
+    packId?: SortOrder
+  }
+
+  export type PackPromptsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    prompt?: SortOrder
+    packId?: SortOrder
+  }
+
+  export type PackPromptsMinOrderByAggregateInput = {
+    id?: SortOrder
+    prompt?: SortOrder
+    packId?: SortOrder
+  }
+
   export type SessionCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6712,6 +12622,13 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
+  export type ModelCreateNestedManyWithoutUserInput = {
+    create?: XOR<ModelCreateWithoutUserInput, ModelUncheckedCreateWithoutUserInput> | ModelCreateWithoutUserInput[] | ModelUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ModelCreateOrConnectWithoutUserInput | ModelCreateOrConnectWithoutUserInput[]
+    createMany?: ModelCreateManyUserInputEnvelope
+    connect?: ModelWhereUniqueInput | ModelWhereUniqueInput[]
+  }
+
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6724,6 +12641,13 @@ export namespace Prisma {
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
     createMany?: AccountCreateManyUserInputEnvelope
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+  }
+
+  export type ModelUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ModelCreateWithoutUserInput, ModelUncheckedCreateWithoutUserInput> | ModelCreateWithoutUserInput[] | ModelUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ModelCreateOrConnectWithoutUserInput | ModelCreateOrConnectWithoutUserInput[]
+    createMany?: ModelCreateManyUserInputEnvelope
+    connect?: ModelWhereUniqueInput | ModelWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -6770,6 +12694,20 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
+  export type ModelUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ModelCreateWithoutUserInput, ModelUncheckedCreateWithoutUserInput> | ModelCreateWithoutUserInput[] | ModelUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ModelCreateOrConnectWithoutUserInput | ModelCreateOrConnectWithoutUserInput[]
+    upsert?: ModelUpsertWithWhereUniqueWithoutUserInput | ModelUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ModelCreateManyUserInputEnvelope
+    set?: ModelWhereUniqueInput | ModelWhereUniqueInput[]
+    disconnect?: ModelWhereUniqueInput | ModelWhereUniqueInput[]
+    delete?: ModelWhereUniqueInput | ModelWhereUniqueInput[]
+    connect?: ModelWhereUniqueInput | ModelWhereUniqueInput[]
+    update?: ModelUpdateWithWhereUniqueWithoutUserInput | ModelUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ModelUpdateManyWithWhereWithoutUserInput | ModelUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ModelScalarWhereInput | ModelScalarWhereInput[]
+  }
+
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6796,6 +12734,20 @@ export namespace Prisma {
     update?: AccountUpdateWithWhereUniqueWithoutUserInput | AccountUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: AccountUpdateManyWithWhereWithoutUserInput | AccountUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
+  }
+
+  export type ModelUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ModelCreateWithoutUserInput, ModelUncheckedCreateWithoutUserInput> | ModelCreateWithoutUserInput[] | ModelUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ModelCreateOrConnectWithoutUserInput | ModelCreateOrConnectWithoutUserInput[]
+    upsert?: ModelUpsertWithWhereUniqueWithoutUserInput | ModelUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ModelCreateManyUserInputEnvelope
+    set?: ModelWhereUniqueInput | ModelWhereUniqueInput[]
+    disconnect?: ModelWhereUniqueInput | ModelWhereUniqueInput[]
+    delete?: ModelWhereUniqueInput | ModelWhereUniqueInput[]
+    connect?: ModelWhereUniqueInput | ModelWhereUniqueInput[]
+    update?: ModelUpdateWithWhereUniqueWithoutUserInput | ModelUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ModelUpdateManyWithWhereWithoutUserInput | ModelUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ModelScalarWhereInput | ModelScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutSessionInput = {
@@ -6828,6 +12780,156 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutAccountInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAccountInput, UserUpdateWithoutAccountInput>, UserUncheckedUpdateWithoutAccountInput>
+  }
+
+  export type OutputImageCreateNestedManyWithoutModelInput = {
+    create?: XOR<OutputImageCreateWithoutModelInput, OutputImageUncheckedCreateWithoutModelInput> | OutputImageCreateWithoutModelInput[] | OutputImageUncheckedCreateWithoutModelInput[]
+    connectOrCreate?: OutputImageCreateOrConnectWithoutModelInput | OutputImageCreateOrConnectWithoutModelInput[]
+    createMany?: OutputImageCreateManyModelInputEnvelope
+    connect?: OutputImageWhereUniqueInput | OutputImageWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedOneWithoutModelsInput = {
+    create?: XOR<UserCreateWithoutModelsInput, UserUncheckedCreateWithoutModelsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutModelsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type OutputImageUncheckedCreateNestedManyWithoutModelInput = {
+    create?: XOR<OutputImageCreateWithoutModelInput, OutputImageUncheckedCreateWithoutModelInput> | OutputImageCreateWithoutModelInput[] | OutputImageUncheckedCreateWithoutModelInput[]
+    connectOrCreate?: OutputImageCreateOrConnectWithoutModelInput | OutputImageCreateOrConnectWithoutModelInput[]
+    createMany?: OutputImageCreateManyModelInputEnvelope
+    connect?: OutputImageWhereUniqueInput | OutputImageWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type EnumTypeFieldUpdateOperationsInput = {
+    set?: $Enums.Type
+  }
+
+  export type EnumStatusFieldUpdateOperationsInput = {
+    set?: $Enums.Status
+  }
+
+  export type EnumEthinicityFieldUpdateOperationsInput = {
+    set?: $Enums.Ethinicity
+  }
+
+  export type EnumEyeColorFieldUpdateOperationsInput = {
+    set?: $Enums.EyeColor
+  }
+
+  export type OutputImageUpdateManyWithoutModelNestedInput = {
+    create?: XOR<OutputImageCreateWithoutModelInput, OutputImageUncheckedCreateWithoutModelInput> | OutputImageCreateWithoutModelInput[] | OutputImageUncheckedCreateWithoutModelInput[]
+    connectOrCreate?: OutputImageCreateOrConnectWithoutModelInput | OutputImageCreateOrConnectWithoutModelInput[]
+    upsert?: OutputImageUpsertWithWhereUniqueWithoutModelInput | OutputImageUpsertWithWhereUniqueWithoutModelInput[]
+    createMany?: OutputImageCreateManyModelInputEnvelope
+    set?: OutputImageWhereUniqueInput | OutputImageWhereUniqueInput[]
+    disconnect?: OutputImageWhereUniqueInput | OutputImageWhereUniqueInput[]
+    delete?: OutputImageWhereUniqueInput | OutputImageWhereUniqueInput[]
+    connect?: OutputImageWhereUniqueInput | OutputImageWhereUniqueInput[]
+    update?: OutputImageUpdateWithWhereUniqueWithoutModelInput | OutputImageUpdateWithWhereUniqueWithoutModelInput[]
+    updateMany?: OutputImageUpdateManyWithWhereWithoutModelInput | OutputImageUpdateManyWithWhereWithoutModelInput[]
+    deleteMany?: OutputImageScalarWhereInput | OutputImageScalarWhereInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutModelsNestedInput = {
+    create?: XOR<UserCreateWithoutModelsInput, UserUncheckedCreateWithoutModelsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutModelsInput
+    upsert?: UserUpsertWithoutModelsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutModelsInput, UserUpdateWithoutModelsInput>, UserUncheckedUpdateWithoutModelsInput>
+  }
+
+  export type OutputImageUncheckedUpdateManyWithoutModelNestedInput = {
+    create?: XOR<OutputImageCreateWithoutModelInput, OutputImageUncheckedCreateWithoutModelInput> | OutputImageCreateWithoutModelInput[] | OutputImageUncheckedCreateWithoutModelInput[]
+    connectOrCreate?: OutputImageCreateOrConnectWithoutModelInput | OutputImageCreateOrConnectWithoutModelInput[]
+    upsert?: OutputImageUpsertWithWhereUniqueWithoutModelInput | OutputImageUpsertWithWhereUniqueWithoutModelInput[]
+    createMany?: OutputImageCreateManyModelInputEnvelope
+    set?: OutputImageWhereUniqueInput | OutputImageWhereUniqueInput[]
+    disconnect?: OutputImageWhereUniqueInput | OutputImageWhereUniqueInput[]
+    delete?: OutputImageWhereUniqueInput | OutputImageWhereUniqueInput[]
+    connect?: OutputImageWhereUniqueInput | OutputImageWhereUniqueInput[]
+    update?: OutputImageUpdateWithWhereUniqueWithoutModelInput | OutputImageUpdateWithWhereUniqueWithoutModelInput[]
+    updateMany?: OutputImageUpdateManyWithWhereWithoutModelInput | OutputImageUpdateManyWithWhereWithoutModelInput[]
+    deleteMany?: OutputImageScalarWhereInput | OutputImageScalarWhereInput[]
+  }
+
+  export type ModelCreateNestedOneWithoutOutputImagesInput = {
+    create?: XOR<ModelCreateWithoutOutputImagesInput, ModelUncheckedCreateWithoutOutputImagesInput>
+    connectOrCreate?: ModelCreateOrConnectWithoutOutputImagesInput
+    connect?: ModelWhereUniqueInput
+  }
+
+  export type ModelUpdateOneRequiredWithoutOutputImagesNestedInput = {
+    create?: XOR<ModelCreateWithoutOutputImagesInput, ModelUncheckedCreateWithoutOutputImagesInput>
+    connectOrCreate?: ModelCreateOrConnectWithoutOutputImagesInput
+    upsert?: ModelUpsertWithoutOutputImagesInput
+    connect?: ModelWhereUniqueInput
+    update?: XOR<XOR<ModelUpdateToOneWithWhereWithoutOutputImagesInput, ModelUpdateWithoutOutputImagesInput>, ModelUncheckedUpdateWithoutOutputImagesInput>
+  }
+
+  export type PackPromptsCreateNestedManyWithoutPackInput = {
+    create?: XOR<PackPromptsCreateWithoutPackInput, PackPromptsUncheckedCreateWithoutPackInput> | PackPromptsCreateWithoutPackInput[] | PackPromptsUncheckedCreateWithoutPackInput[]
+    connectOrCreate?: PackPromptsCreateOrConnectWithoutPackInput | PackPromptsCreateOrConnectWithoutPackInput[]
+    createMany?: PackPromptsCreateManyPackInputEnvelope
+    connect?: PackPromptsWhereUniqueInput | PackPromptsWhereUniqueInput[]
+  }
+
+  export type PackPromptsUncheckedCreateNestedManyWithoutPackInput = {
+    create?: XOR<PackPromptsCreateWithoutPackInput, PackPromptsUncheckedCreateWithoutPackInput> | PackPromptsCreateWithoutPackInput[] | PackPromptsUncheckedCreateWithoutPackInput[]
+    connectOrCreate?: PackPromptsCreateOrConnectWithoutPackInput | PackPromptsCreateOrConnectWithoutPackInput[]
+    createMany?: PackPromptsCreateManyPackInputEnvelope
+    connect?: PackPromptsWhereUniqueInput | PackPromptsWhereUniqueInput[]
+  }
+
+  export type PackPromptsUpdateManyWithoutPackNestedInput = {
+    create?: XOR<PackPromptsCreateWithoutPackInput, PackPromptsUncheckedCreateWithoutPackInput> | PackPromptsCreateWithoutPackInput[] | PackPromptsUncheckedCreateWithoutPackInput[]
+    connectOrCreate?: PackPromptsCreateOrConnectWithoutPackInput | PackPromptsCreateOrConnectWithoutPackInput[]
+    upsert?: PackPromptsUpsertWithWhereUniqueWithoutPackInput | PackPromptsUpsertWithWhereUniqueWithoutPackInput[]
+    createMany?: PackPromptsCreateManyPackInputEnvelope
+    set?: PackPromptsWhereUniqueInput | PackPromptsWhereUniqueInput[]
+    disconnect?: PackPromptsWhereUniqueInput | PackPromptsWhereUniqueInput[]
+    delete?: PackPromptsWhereUniqueInput | PackPromptsWhereUniqueInput[]
+    connect?: PackPromptsWhereUniqueInput | PackPromptsWhereUniqueInput[]
+    update?: PackPromptsUpdateWithWhereUniqueWithoutPackInput | PackPromptsUpdateWithWhereUniqueWithoutPackInput[]
+    updateMany?: PackPromptsUpdateManyWithWhereWithoutPackInput | PackPromptsUpdateManyWithWhereWithoutPackInput[]
+    deleteMany?: PackPromptsScalarWhereInput | PackPromptsScalarWhereInput[]
+  }
+
+  export type PackPromptsUncheckedUpdateManyWithoutPackNestedInput = {
+    create?: XOR<PackPromptsCreateWithoutPackInput, PackPromptsUncheckedCreateWithoutPackInput> | PackPromptsCreateWithoutPackInput[] | PackPromptsUncheckedCreateWithoutPackInput[]
+    connectOrCreate?: PackPromptsCreateOrConnectWithoutPackInput | PackPromptsCreateOrConnectWithoutPackInput[]
+    upsert?: PackPromptsUpsertWithWhereUniqueWithoutPackInput | PackPromptsUpsertWithWhereUniqueWithoutPackInput[]
+    createMany?: PackPromptsCreateManyPackInputEnvelope
+    set?: PackPromptsWhereUniqueInput | PackPromptsWhereUniqueInput[]
+    disconnect?: PackPromptsWhereUniqueInput | PackPromptsWhereUniqueInput[]
+    delete?: PackPromptsWhereUniqueInput | PackPromptsWhereUniqueInput[]
+    connect?: PackPromptsWhereUniqueInput | PackPromptsWhereUniqueInput[]
+    update?: PackPromptsUpdateWithWhereUniqueWithoutPackInput | PackPromptsUpdateWithWhereUniqueWithoutPackInput[]
+    updateMany?: PackPromptsUpdateManyWithWhereWithoutPackInput | PackPromptsUpdateManyWithWhereWithoutPackInput[]
+    deleteMany?: PackPromptsScalarWhereInput | PackPromptsScalarWhereInput[]
+  }
+
+  export type PackCreateNestedOneWithoutPackPromptsInput = {
+    create?: XOR<PackCreateWithoutPackPromptsInput, PackUncheckedCreateWithoutPackPromptsInput>
+    connectOrCreate?: PackCreateOrConnectWithoutPackPromptsInput
+    connect?: PackWhereUniqueInput
+  }
+
+  export type PackUpdateOneRequiredWithoutPackPromptsNestedInput = {
+    create?: XOR<PackCreateWithoutPackPromptsInput, PackUncheckedCreateWithoutPackPromptsInput>
+    connectOrCreate?: PackCreateOrConnectWithoutPackPromptsInput
+    upsert?: PackUpsertWithoutPackPromptsInput
+    connect?: PackWhereUniqueInput
+    update?: XOR<XOR<PackUpdateToOneWithWhereWithoutPackPromptsInput, PackUpdateWithoutPackPromptsInput>, PackUncheckedUpdateWithoutPackPromptsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6977,6 +13079,101 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type NestedEnumTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.Type | EnumTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.Type[] | ListEnumTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Type[] | ListEnumTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumTypeFilter<$PrismaModel> | $Enums.Type
+  }
+
+  export type NestedEnumStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusFilter<$PrismaModel> | $Enums.Status
+  }
+
+  export type NestedEnumEthinicityFilter<$PrismaModel = never> = {
+    equals?: $Enums.Ethinicity | EnumEthinicityFieldRefInput<$PrismaModel>
+    in?: $Enums.Ethinicity[] | ListEnumEthinicityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Ethinicity[] | ListEnumEthinicityFieldRefInput<$PrismaModel>
+    not?: NestedEnumEthinicityFilter<$PrismaModel> | $Enums.Ethinicity
+  }
+
+  export type NestedEnumEyeColorFilter<$PrismaModel = never> = {
+    equals?: $Enums.EyeColor | EnumEyeColorFieldRefInput<$PrismaModel>
+    in?: $Enums.EyeColor[] | ListEnumEyeColorFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EyeColor[] | ListEnumEyeColorFieldRefInput<$PrismaModel>
+    not?: NestedEnumEyeColorFilter<$PrismaModel> | $Enums.EyeColor
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedEnumTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Type | EnumTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.Type[] | ListEnumTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Type[] | ListEnumTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumTypeWithAggregatesFilter<$PrismaModel> | $Enums.Type
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumTypeFilter<$PrismaModel>
+    _max?: NestedEnumTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusWithAggregatesFilter<$PrismaModel> | $Enums.Status
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStatusFilter<$PrismaModel>
+    _max?: NestedEnumStatusFilter<$PrismaModel>
+  }
+
+  export type NestedEnumEthinicityWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Ethinicity | EnumEthinicityFieldRefInput<$PrismaModel>
+    in?: $Enums.Ethinicity[] | ListEnumEthinicityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Ethinicity[] | ListEnumEthinicityFieldRefInput<$PrismaModel>
+    not?: NestedEnumEthinicityWithAggregatesFilter<$PrismaModel> | $Enums.Ethinicity
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEthinicityFilter<$PrismaModel>
+    _max?: NestedEnumEthinicityFilter<$PrismaModel>
+  }
+
+  export type NestedEnumEyeColorWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.EyeColor | EnumEyeColorFieldRefInput<$PrismaModel>
+    in?: $Enums.EyeColor[] | ListEnumEyeColorFieldRefInput<$PrismaModel>
+    notIn?: $Enums.EyeColor[] | ListEnumEyeColorFieldRefInput<$PrismaModel>
+    not?: NestedEnumEyeColorWithAggregatesFilter<$PrismaModel> | $Enums.EyeColor
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumEyeColorFilter<$PrismaModel>
+    _max?: NestedEnumEyeColorFilter<$PrismaModel>
+  }
+
   export type SessionCreateWithoutUserInput = {
     id?: string
     expiresAt: Date | string
@@ -7049,6 +13246,52 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type ModelCreateWithoutUserInput = {
+    id?: string
+    name: string
+    age: number
+    type: $Enums.Type
+    trigerWord?: string | null
+    tensorPath?: string | null
+    status?: $Enums.Status
+    ethinicity: $Enums.Ethinicity
+    eyeColor: $Enums.EyeColor
+    bold?: boolean
+    falAiRequest_id?: string | null
+    zipUrl: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    outputImages?: OutputImageCreateNestedManyWithoutModelInput
+  }
+
+  export type ModelUncheckedCreateWithoutUserInput = {
+    id?: string
+    name: string
+    age: number
+    type: $Enums.Type
+    trigerWord?: string | null
+    tensorPath?: string | null
+    status?: $Enums.Status
+    ethinicity: $Enums.Ethinicity
+    eyeColor: $Enums.EyeColor
+    bold?: boolean
+    falAiRequest_id?: string | null
+    zipUrl: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    outputImages?: OutputImageUncheckedCreateNestedManyWithoutModelInput
+  }
+
+  export type ModelCreateOrConnectWithoutUserInput = {
+    where: ModelWhereUniqueInput
+    create: XOR<ModelCreateWithoutUserInput, ModelUncheckedCreateWithoutUserInput>
+  }
+
+  export type ModelCreateManyUserInputEnvelope = {
+    data: ModelCreateManyUserInput | ModelCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
     where: SessionWhereUniqueInput
     update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
@@ -7115,6 +13358,43 @@ export namespace Prisma {
     scope?: StringNullableFilter<"Account"> | string | null
   }
 
+  export type ModelUpsertWithWhereUniqueWithoutUserInput = {
+    where: ModelWhereUniqueInput
+    update: XOR<ModelUpdateWithoutUserInput, ModelUncheckedUpdateWithoutUserInput>
+    create: XOR<ModelCreateWithoutUserInput, ModelUncheckedCreateWithoutUserInput>
+  }
+
+  export type ModelUpdateWithWhereUniqueWithoutUserInput = {
+    where: ModelWhereUniqueInput
+    data: XOR<ModelUpdateWithoutUserInput, ModelUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ModelUpdateManyWithWhereWithoutUserInput = {
+    where: ModelScalarWhereInput
+    data: XOR<ModelUpdateManyMutationInput, ModelUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type ModelScalarWhereInput = {
+    AND?: ModelScalarWhereInput | ModelScalarWhereInput[]
+    OR?: ModelScalarWhereInput[]
+    NOT?: ModelScalarWhereInput | ModelScalarWhereInput[]
+    id?: StringFilter<"Model"> | string
+    userId?: StringFilter<"Model"> | string
+    name?: StringFilter<"Model"> | string
+    age?: IntFilter<"Model"> | number
+    type?: EnumTypeFilter<"Model"> | $Enums.Type
+    trigerWord?: StringNullableFilter<"Model"> | string | null
+    tensorPath?: StringNullableFilter<"Model"> | string | null
+    status?: EnumStatusFilter<"Model"> | $Enums.Status
+    ethinicity?: EnumEthinicityFilter<"Model"> | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFilter<"Model"> | $Enums.EyeColor
+    bold?: BoolFilter<"Model"> | boolean
+    falAiRequest_id?: StringNullableFilter<"Model"> | string | null
+    zipUrl?: StringFilter<"Model"> | string
+    createdAt?: DateTimeFilter<"Model"> | Date | string
+    updatedAt?: DateTimeFilter<"Model"> | Date | string
+  }
+
   export type UserCreateWithoutSessionInput = {
     id?: string
     name: string
@@ -7125,6 +13405,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     twoFactorEnabled?: boolean
     Account?: AccountCreateNestedManyWithoutUserInput
+    models?: ModelCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionInput = {
@@ -7137,6 +13418,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     twoFactorEnabled?: boolean
     Account?: AccountUncheckedCreateNestedManyWithoutUserInput
+    models?: ModelUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionInput = {
@@ -7165,6 +13447,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     twoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     Account?: AccountUpdateManyWithoutUserNestedInput
+    models?: ModelUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionInput = {
@@ -7177,6 +13460,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     twoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     Account?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    models?: ModelUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountInput = {
@@ -7189,6 +13473,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     twoFactorEnabled?: boolean
     Session?: SessionCreateNestedManyWithoutUserInput
+    models?: ModelCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountInput = {
@@ -7201,6 +13486,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     twoFactorEnabled?: boolean
     Session?: SessionUncheckedCreateNestedManyWithoutUserInput
+    models?: ModelUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountInput = {
@@ -7229,6 +13515,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     twoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     Session?: SessionUpdateManyWithoutUserNestedInput
+    models?: ModelUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountInput = {
@@ -7241,6 +13528,307 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     twoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     Session?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    models?: ModelUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type OutputImageCreateWithoutModelInput = {
+    id?: string
+    imageUrl: string
+    userId: string
+    falAiRequest_id?: string | null
+    prompt: string
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OutputImageUncheckedCreateWithoutModelInput = {
+    id?: string
+    imageUrl: string
+    userId: string
+    falAiRequest_id?: string | null
+    prompt: string
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OutputImageCreateOrConnectWithoutModelInput = {
+    where: OutputImageWhereUniqueInput
+    create: XOR<OutputImageCreateWithoutModelInput, OutputImageUncheckedCreateWithoutModelInput>
+  }
+
+  export type OutputImageCreateManyModelInputEnvelope = {
+    data: OutputImageCreateManyModelInput | OutputImageCreateManyModelInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutModelsInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    twoFactorEnabled?: boolean
+    Session?: SessionCreateNestedManyWithoutUserInput
+    Account?: AccountCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutModelsInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    twoFactorEnabled?: boolean
+    Session?: SessionUncheckedCreateNestedManyWithoutUserInput
+    Account?: AccountUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutModelsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutModelsInput, UserUncheckedCreateWithoutModelsInput>
+  }
+
+  export type OutputImageUpsertWithWhereUniqueWithoutModelInput = {
+    where: OutputImageWhereUniqueInput
+    update: XOR<OutputImageUpdateWithoutModelInput, OutputImageUncheckedUpdateWithoutModelInput>
+    create: XOR<OutputImageCreateWithoutModelInput, OutputImageUncheckedCreateWithoutModelInput>
+  }
+
+  export type OutputImageUpdateWithWhereUniqueWithoutModelInput = {
+    where: OutputImageWhereUniqueInput
+    data: XOR<OutputImageUpdateWithoutModelInput, OutputImageUncheckedUpdateWithoutModelInput>
+  }
+
+  export type OutputImageUpdateManyWithWhereWithoutModelInput = {
+    where: OutputImageScalarWhereInput
+    data: XOR<OutputImageUpdateManyMutationInput, OutputImageUncheckedUpdateManyWithoutModelInput>
+  }
+
+  export type OutputImageScalarWhereInput = {
+    AND?: OutputImageScalarWhereInput | OutputImageScalarWhereInput[]
+    OR?: OutputImageScalarWhereInput[]
+    NOT?: OutputImageScalarWhereInput | OutputImageScalarWhereInput[]
+    id?: StringFilter<"OutputImage"> | string
+    imageUrl?: StringFilter<"OutputImage"> | string
+    modelId?: StringFilter<"OutputImage"> | string
+    userId?: StringFilter<"OutputImage"> | string
+    falAiRequest_id?: StringNullableFilter<"OutputImage"> | string | null
+    prompt?: StringFilter<"OutputImage"> | string
+    status?: EnumStatusFilter<"OutputImage"> | $Enums.Status
+    createdAt?: DateTimeFilter<"OutputImage"> | Date | string
+    updatedAt?: DateTimeFilter<"OutputImage"> | Date | string
+  }
+
+  export type UserUpsertWithoutModelsInput = {
+    update: XOR<UserUpdateWithoutModelsInput, UserUncheckedUpdateWithoutModelsInput>
+    create: XOR<UserCreateWithoutModelsInput, UserUncheckedCreateWithoutModelsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutModelsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutModelsInput, UserUncheckedUpdateWithoutModelsInput>
+  }
+
+  export type UserUpdateWithoutModelsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    twoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    Session?: SessionUpdateManyWithoutUserNestedInput
+    Account?: AccountUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutModelsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    twoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    Session?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    Account?: AccountUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ModelCreateWithoutOutputImagesInput = {
+    id?: string
+    name: string
+    age: number
+    type: $Enums.Type
+    trigerWord?: string | null
+    tensorPath?: string | null
+    status?: $Enums.Status
+    ethinicity: $Enums.Ethinicity
+    eyeColor: $Enums.EyeColor
+    bold?: boolean
+    falAiRequest_id?: string | null
+    zipUrl: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutModelsInput
+  }
+
+  export type ModelUncheckedCreateWithoutOutputImagesInput = {
+    id?: string
+    userId: string
+    name: string
+    age: number
+    type: $Enums.Type
+    trigerWord?: string | null
+    tensorPath?: string | null
+    status?: $Enums.Status
+    ethinicity: $Enums.Ethinicity
+    eyeColor: $Enums.EyeColor
+    bold?: boolean
+    falAiRequest_id?: string | null
+    zipUrl: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ModelCreateOrConnectWithoutOutputImagesInput = {
+    where: ModelWhereUniqueInput
+    create: XOR<ModelCreateWithoutOutputImagesInput, ModelUncheckedCreateWithoutOutputImagesInput>
+  }
+
+  export type ModelUpsertWithoutOutputImagesInput = {
+    update: XOR<ModelUpdateWithoutOutputImagesInput, ModelUncheckedUpdateWithoutOutputImagesInput>
+    create: XOR<ModelCreateWithoutOutputImagesInput, ModelUncheckedCreateWithoutOutputImagesInput>
+    where?: ModelWhereInput
+  }
+
+  export type ModelUpdateToOneWithWhereWithoutOutputImagesInput = {
+    where?: ModelWhereInput
+    data: XOR<ModelUpdateWithoutOutputImagesInput, ModelUncheckedUpdateWithoutOutputImagesInput>
+  }
+
+  export type ModelUpdateWithoutOutputImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
+    tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
+    bold?: BoolFieldUpdateOperationsInput | boolean
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    zipUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutModelsNestedInput
+  }
+
+  export type ModelUncheckedUpdateWithoutOutputImagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
+    tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
+    bold?: BoolFieldUpdateOperationsInput | boolean
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    zipUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PackPromptsCreateWithoutPackInput = {
+    id: string
+    prompt: string
+  }
+
+  export type PackPromptsUncheckedCreateWithoutPackInput = {
+    id: string
+    prompt: string
+  }
+
+  export type PackPromptsCreateOrConnectWithoutPackInput = {
+    where: PackPromptsWhereUniqueInput
+    create: XOR<PackPromptsCreateWithoutPackInput, PackPromptsUncheckedCreateWithoutPackInput>
+  }
+
+  export type PackPromptsCreateManyPackInputEnvelope = {
+    data: PackPromptsCreateManyPackInput | PackPromptsCreateManyPackInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PackPromptsUpsertWithWhereUniqueWithoutPackInput = {
+    where: PackPromptsWhereUniqueInput
+    update: XOR<PackPromptsUpdateWithoutPackInput, PackPromptsUncheckedUpdateWithoutPackInput>
+    create: XOR<PackPromptsCreateWithoutPackInput, PackPromptsUncheckedCreateWithoutPackInput>
+  }
+
+  export type PackPromptsUpdateWithWhereUniqueWithoutPackInput = {
+    where: PackPromptsWhereUniqueInput
+    data: XOR<PackPromptsUpdateWithoutPackInput, PackPromptsUncheckedUpdateWithoutPackInput>
+  }
+
+  export type PackPromptsUpdateManyWithWhereWithoutPackInput = {
+    where: PackPromptsScalarWhereInput
+    data: XOR<PackPromptsUpdateManyMutationInput, PackPromptsUncheckedUpdateManyWithoutPackInput>
+  }
+
+  export type PackPromptsScalarWhereInput = {
+    AND?: PackPromptsScalarWhereInput | PackPromptsScalarWhereInput[]
+    OR?: PackPromptsScalarWhereInput[]
+    NOT?: PackPromptsScalarWhereInput | PackPromptsScalarWhereInput[]
+    id?: StringFilter<"PackPrompts"> | string
+    prompt?: StringFilter<"PackPrompts"> | string
+    packId?: StringFilter<"PackPrompts"> | string
+  }
+
+  export type PackCreateWithoutPackPromptsInput = {
+    id: string
+    name: string
+  }
+
+  export type PackUncheckedCreateWithoutPackPromptsInput = {
+    id: string
+    name: string
+  }
+
+  export type PackCreateOrConnectWithoutPackPromptsInput = {
+    where: PackWhereUniqueInput
+    create: XOR<PackCreateWithoutPackPromptsInput, PackUncheckedCreateWithoutPackPromptsInput>
+  }
+
+  export type PackUpsertWithoutPackPromptsInput = {
+    update: XOR<PackUpdateWithoutPackPromptsInput, PackUncheckedUpdateWithoutPackPromptsInput>
+    create: XOR<PackCreateWithoutPackPromptsInput, PackUncheckedCreateWithoutPackPromptsInput>
+    where?: PackWhereInput
+  }
+
+  export type PackUpdateToOneWithWhereWithoutPackPromptsInput = {
+    where?: PackWhereInput
+    data: XOR<PackUpdateWithoutPackPromptsInput, PackUncheckedUpdateWithoutPackPromptsInput>
+  }
+
+  export type PackUpdateWithoutPackPromptsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PackUncheckedUpdateWithoutPackPromptsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
   }
 
   export type SessionCreateManyUserInput = {
@@ -7267,6 +13855,23 @@ export namespace Prisma {
     accessTokenExpiresAt?: Date | string | null
     refreshTokenExpiresAt?: Date | string | null
     scope?: string | null
+  }
+
+  export type ModelCreateManyUserInput = {
+    id?: string
+    name: string
+    age: number
+    type: $Enums.Type
+    trigerWord?: string | null
+    tensorPath?: string | null
+    status?: $Enums.Status
+    ethinicity: $Enums.Ethinicity
+    eyeColor: $Enums.EyeColor
+    bold?: boolean
+    falAiRequest_id?: string | null
+    zipUrl: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type SessionUpdateWithoutUserInput = {
@@ -7345,6 +13950,123 @@ export namespace Prisma {
     accessTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refreshTokenExpiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     scope?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ModelUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
+    tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
+    bold?: BoolFieldUpdateOperationsInput | boolean
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    zipUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    outputImages?: OutputImageUpdateManyWithoutModelNestedInput
+  }
+
+  export type ModelUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
+    tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
+    bold?: BoolFieldUpdateOperationsInput | boolean
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    zipUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    outputImages?: OutputImageUncheckedUpdateManyWithoutModelNestedInput
+  }
+
+  export type ModelUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
+    trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
+    tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
+    eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
+    bold?: BoolFieldUpdateOperationsInput | boolean
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    zipUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OutputImageCreateManyModelInput = {
+    id?: string
+    imageUrl: string
+    userId: string
+    falAiRequest_id?: string | null
+    prompt: string
+    status?: $Enums.Status
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OutputImageUpdateWithoutModelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OutputImageUncheckedUpdateWithoutModelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OutputImageUncheckedUpdateManyWithoutModelInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    falAiRequest_id?: NullableStringFieldUpdateOperationsInput | string | null
+    prompt?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PackPromptsCreateManyPackInput = {
+    id: string
+    prompt: string
+  }
+
+  export type PackPromptsUpdateWithoutPackInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    prompt?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PackPromptsUncheckedUpdateWithoutPackInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    prompt?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PackPromptsUncheckedUpdateManyWithoutPackInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    prompt?: StringFieldUpdateOperationsInput | string
   }
 
 
