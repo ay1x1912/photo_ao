@@ -18,8 +18,10 @@ export async function POST(request:NextRequest) {
         })}
     //check for body
         const body= await request.json()
+        console.log(body);
         const parseBody=GenerateImageFromPrompt.safeParse(body);
         if(!parseBody.success){
+          console.log(parseBody.error)
                 return NextResponse.json({msg:"Incorrect Input"},{status:411})
               }
         const {modelId,num,prompt }=parseBody.data

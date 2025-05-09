@@ -176,6 +176,7 @@ exports.Prisma.ModelScalarFieldEnum = {
   type: 'type',
   trigerWord: 'trigerWord',
   tensorPath: 'tensorPath',
+  thumbnailUrl: 'thumbnailUrl',
   status: 'status',
   ethinicity: 'ethinicity',
   eyeColor: 'eyeColor',
@@ -200,7 +201,9 @@ exports.Prisma.OutputImageScalarFieldEnum = {
 
 exports.Prisma.PackScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  description: 'description',
+  thumbnailUrl: 'thumbnailUrl'
 };
 
 exports.Prisma.PackPromptsScalarFieldEnum = {

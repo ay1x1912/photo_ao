@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request:NextRequest) {
     const body=await request.json()
     const {request_id,status}=body;
+    console.log("route hit")
     if(status=="OK"){
        await  prisma.outputImage.updateMany({
            where:{
@@ -18,6 +19,8 @@ export async function POST(request:NextRequest) {
        return NextResponse.json({msg:"Generated successfuly"})
     }
     if(status=="ERROR"){
+    console.log("failed")
+
        await  prisma.model.updateMany ({
            where:{
                falAiRequest_id:request_id  },

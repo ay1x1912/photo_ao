@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-
 import { S3Client, GetObjectCommand, S3ClientConfig, PutObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 if(!process.env.ACCESSKEYID){
@@ -13,7 +12,7 @@ if(!process.env.ACCESSKEYID){
     },
     region: "auto",
   });
-export async function POST(request:NextRequest) {
+export async function GET(request:NextRequest) {
     const key=`model/${Date.now()}_${Math.random()}.zip`
     const url = await getSignedUrl(
         r2,

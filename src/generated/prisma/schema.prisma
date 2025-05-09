@@ -110,6 +110,7 @@ model Model {
   type            Type
   trigerWord      String?
   tensorPath      String?
+  thumbnailUrl    String        @default("")
   status          Status        @default(Pending)
   ethinicity      Ethinicity
   eyeColor        EyeColor
@@ -142,9 +143,11 @@ model OutputImage {
 }
 
 model Pack {
-  id          String        @id
-  name        String
-  packPrompts PackPrompts[]
+  id           String        @id
+  name         String
+  description  String        @default("")
+  thumbnailUrl String        @default("")
+  packPrompts  PackPrompts[]
 }
 
 model PackPrompts {

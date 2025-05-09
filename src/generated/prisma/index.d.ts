@@ -6153,6 +6153,7 @@ export namespace Prisma {
     type: $Enums.Type | null
     trigerWord: string | null
     tensorPath: string | null
+    thumbnailUrl: string | null
     status: $Enums.Status | null
     ethinicity: $Enums.Ethinicity | null
     eyeColor: $Enums.EyeColor | null
@@ -6171,6 +6172,7 @@ export namespace Prisma {
     type: $Enums.Type | null
     trigerWord: string | null
     tensorPath: string | null
+    thumbnailUrl: string | null
     status: $Enums.Status | null
     ethinicity: $Enums.Ethinicity | null
     eyeColor: $Enums.EyeColor | null
@@ -6189,6 +6191,7 @@ export namespace Prisma {
     type: number
     trigerWord: number
     tensorPath: number
+    thumbnailUrl: number
     status: number
     ethinicity: number
     eyeColor: number
@@ -6217,6 +6220,7 @@ export namespace Prisma {
     type?: true
     trigerWord?: true
     tensorPath?: true
+    thumbnailUrl?: true
     status?: true
     ethinicity?: true
     eyeColor?: true
@@ -6235,6 +6239,7 @@ export namespace Prisma {
     type?: true
     trigerWord?: true
     tensorPath?: true
+    thumbnailUrl?: true
     status?: true
     ethinicity?: true
     eyeColor?: true
@@ -6253,6 +6258,7 @@ export namespace Prisma {
     type?: true
     trigerWord?: true
     tensorPath?: true
+    thumbnailUrl?: true
     status?: true
     ethinicity?: true
     eyeColor?: true
@@ -6358,6 +6364,7 @@ export namespace Prisma {
     type: $Enums.Type
     trigerWord: string | null
     tensorPath: string | null
+    thumbnailUrl: string
     status: $Enums.Status
     ethinicity: $Enums.Ethinicity
     eyeColor: $Enums.EyeColor
@@ -6395,6 +6402,7 @@ export namespace Prisma {
     type?: boolean
     trigerWord?: boolean
     tensorPath?: boolean
+    thumbnailUrl?: boolean
     status?: boolean
     ethinicity?: boolean
     eyeColor?: boolean
@@ -6416,6 +6424,7 @@ export namespace Prisma {
     type?: boolean
     trigerWord?: boolean
     tensorPath?: boolean
+    thumbnailUrl?: boolean
     status?: boolean
     ethinicity?: boolean
     eyeColor?: boolean
@@ -6435,6 +6444,7 @@ export namespace Prisma {
     type?: boolean
     trigerWord?: boolean
     tensorPath?: boolean
+    thumbnailUrl?: boolean
     status?: boolean
     ethinicity?: boolean
     eyeColor?: boolean
@@ -6454,6 +6464,7 @@ export namespace Prisma {
     type?: boolean
     trigerWord?: boolean
     tensorPath?: boolean
+    thumbnailUrl?: boolean
     status?: boolean
     ethinicity?: boolean
     eyeColor?: boolean
@@ -6464,7 +6475,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type ModelOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "age" | "type" | "trigerWord" | "tensorPath" | "status" | "ethinicity" | "eyeColor" | "bold" | "falAiRequest_id" | "zipUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["model"]>
+  export type ModelOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "age" | "type" | "trigerWord" | "tensorPath" | "thumbnailUrl" | "status" | "ethinicity" | "eyeColor" | "bold" | "falAiRequest_id" | "zipUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["model"]>
   export type ModelInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     outputImages?: boolean | Model$outputImagesArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -6491,6 +6502,7 @@ export namespace Prisma {
       type: $Enums.Type
       trigerWord: string | null
       tensorPath: string | null
+      thumbnailUrl: string
       status: $Enums.Status
       ethinicity: $Enums.Ethinicity
       eyeColor: $Enums.EyeColor
@@ -6931,6 +6943,7 @@ export namespace Prisma {
     readonly type: FieldRef<"Model", 'Type'>
     readonly trigerWord: FieldRef<"Model", 'String'>
     readonly tensorPath: FieldRef<"Model", 'String'>
+    readonly thumbnailUrl: FieldRef<"Model", 'String'>
     readonly status: FieldRef<"Model", 'Status'>
     readonly ethinicity: FieldRef<"Model", 'Ethinicity'>
     readonly eyeColor: FieldRef<"Model", 'EyeColor'>
@@ -8500,16 +8513,22 @@ export namespace Prisma {
   export type PackMinAggregateOutputType = {
     id: string | null
     name: string | null
+    description: string | null
+    thumbnailUrl: string | null
   }
 
   export type PackMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    description: string | null
+    thumbnailUrl: string | null
   }
 
   export type PackCountAggregateOutputType = {
     id: number
     name: number
+    description: number
+    thumbnailUrl: number
     _all: number
   }
 
@@ -8517,16 +8536,22 @@ export namespace Prisma {
   export type PackMinAggregateInputType = {
     id?: true
     name?: true
+    description?: true
+    thumbnailUrl?: true
   }
 
   export type PackMaxAggregateInputType = {
     id?: true
     name?: true
+    description?: true
+    thumbnailUrl?: true
   }
 
   export type PackCountAggregateInputType = {
     id?: true
     name?: true
+    description?: true
+    thumbnailUrl?: true
     _all?: true
   }
 
@@ -8605,6 +8630,8 @@ export namespace Prisma {
   export type PackGroupByOutputType = {
     id: string
     name: string
+    description: string
+    thumbnailUrl: string
     _count: PackCountAggregateOutputType | null
     _min: PackMinAggregateOutputType | null
     _max: PackMaxAggregateOutputType | null
@@ -8627,6 +8654,8 @@ export namespace Prisma {
   export type PackSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
+    thumbnailUrl?: boolean
     packPrompts?: boolean | Pack$packPromptsArgs<ExtArgs>
     _count?: boolean | PackCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pack"]>
@@ -8634,19 +8663,25 @@ export namespace Prisma {
   export type PackSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
+    thumbnailUrl?: boolean
   }, ExtArgs["result"]["pack"]>
 
   export type PackSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
+    thumbnailUrl?: boolean
   }, ExtArgs["result"]["pack"]>
 
   export type PackSelectScalar = {
     id?: boolean
     name?: boolean
+    description?: boolean
+    thumbnailUrl?: boolean
   }
 
-  export type PackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["pack"]>
+  export type PackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "thumbnailUrl", ExtArgs["result"]["pack"]>
   export type PackInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     packPrompts?: boolean | Pack$packPromptsArgs<ExtArgs>
     _count?: boolean | PackCountOutputTypeDefaultArgs<ExtArgs>
@@ -8662,6 +8697,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      description: string
+      thumbnailUrl: string
     }, ExtArgs["result"]["pack"]>
     composites: {}
   }
@@ -9088,6 +9125,8 @@ export namespace Prisma {
   interface PackFieldRefs {
     readonly id: FieldRef<"Pack", 'String'>
     readonly name: FieldRef<"Pack", 'String'>
+    readonly description: FieldRef<"Pack", 'String'>
+    readonly thumbnailUrl: FieldRef<"Pack", 'String'>
   }
     
 
@@ -10632,6 +10671,7 @@ export namespace Prisma {
     type: 'type',
     trigerWord: 'trigerWord',
     tensorPath: 'tensorPath',
+    thumbnailUrl: 'thumbnailUrl',
     status: 'status',
     ethinicity: 'ethinicity',
     eyeColor: 'eyeColor',
@@ -10662,7 +10702,9 @@ export namespace Prisma {
 
   export const PackScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    name: 'name',
+    description: 'description',
+    thumbnailUrl: 'thumbnailUrl'
   };
 
   export type PackScalarFieldEnum = (typeof PackScalarFieldEnum)[keyof typeof PackScalarFieldEnum]
@@ -11142,6 +11184,7 @@ export namespace Prisma {
     type?: EnumTypeFilter<"Model"> | $Enums.Type
     trigerWord?: StringNullableFilter<"Model"> | string | null
     tensorPath?: StringNullableFilter<"Model"> | string | null
+    thumbnailUrl?: StringFilter<"Model"> | string
     status?: EnumStatusFilter<"Model"> | $Enums.Status
     ethinicity?: EnumEthinicityFilter<"Model"> | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFilter<"Model"> | $Enums.EyeColor
@@ -11162,6 +11205,7 @@ export namespace Prisma {
     type?: SortOrder
     trigerWord?: SortOrderInput | SortOrder
     tensorPath?: SortOrderInput | SortOrder
+    thumbnailUrl?: SortOrder
     status?: SortOrder
     ethinicity?: SortOrder
     eyeColor?: SortOrder
@@ -11185,6 +11229,7 @@ export namespace Prisma {
     type?: EnumTypeFilter<"Model"> | $Enums.Type
     trigerWord?: StringNullableFilter<"Model"> | string | null
     tensorPath?: StringNullableFilter<"Model"> | string | null
+    thumbnailUrl?: StringFilter<"Model"> | string
     status?: EnumStatusFilter<"Model"> | $Enums.Status
     ethinicity?: EnumEthinicityFilter<"Model"> | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFilter<"Model"> | $Enums.EyeColor
@@ -11205,6 +11250,7 @@ export namespace Prisma {
     type?: SortOrder
     trigerWord?: SortOrderInput | SortOrder
     tensorPath?: SortOrderInput | SortOrder
+    thumbnailUrl?: SortOrder
     status?: SortOrder
     ethinicity?: SortOrder
     eyeColor?: SortOrder
@@ -11231,6 +11277,7 @@ export namespace Prisma {
     type?: EnumTypeWithAggregatesFilter<"Model"> | $Enums.Type
     trigerWord?: StringNullableWithAggregatesFilter<"Model"> | string | null
     tensorPath?: StringNullableWithAggregatesFilter<"Model"> | string | null
+    thumbnailUrl?: StringWithAggregatesFilter<"Model"> | string
     status?: EnumStatusWithAggregatesFilter<"Model"> | $Enums.Status
     ethinicity?: EnumEthinicityWithAggregatesFilter<"Model"> | $Enums.Ethinicity
     eyeColor?: EnumEyeColorWithAggregatesFilter<"Model"> | $Enums.EyeColor
@@ -11322,12 +11369,16 @@ export namespace Prisma {
     NOT?: PackWhereInput | PackWhereInput[]
     id?: StringFilter<"Pack"> | string
     name?: StringFilter<"Pack"> | string
+    description?: StringFilter<"Pack"> | string
+    thumbnailUrl?: StringFilter<"Pack"> | string
     packPrompts?: PackPromptsListRelationFilter
   }
 
   export type PackOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
+    thumbnailUrl?: SortOrder
     packPrompts?: PackPromptsOrderByRelationAggregateInput
   }
 
@@ -11337,12 +11388,16 @@ export namespace Prisma {
     OR?: PackWhereInput[]
     NOT?: PackWhereInput | PackWhereInput[]
     name?: StringFilter<"Pack"> | string
+    description?: StringFilter<"Pack"> | string
+    thumbnailUrl?: StringFilter<"Pack"> | string
     packPrompts?: PackPromptsListRelationFilter
   }, "id">
 
   export type PackOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
+    thumbnailUrl?: SortOrder
     _count?: PackCountOrderByAggregateInput
     _max?: PackMaxOrderByAggregateInput
     _min?: PackMinOrderByAggregateInput
@@ -11354,6 +11409,8 @@ export namespace Prisma {
     NOT?: PackScalarWhereWithAggregatesInput | PackScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Pack"> | string
     name?: StringWithAggregatesFilter<"Pack"> | string
+    description?: StringWithAggregatesFilter<"Pack"> | string
+    thumbnailUrl?: StringWithAggregatesFilter<"Pack"> | string
   }
 
   export type PackPromptsWhereInput = {
@@ -11754,6 +11811,7 @@ export namespace Prisma {
     type: $Enums.Type
     trigerWord?: string | null
     tensorPath?: string | null
+    thumbnailUrl?: string
     status?: $Enums.Status
     ethinicity: $Enums.Ethinicity
     eyeColor: $Enums.EyeColor
@@ -11774,6 +11832,7 @@ export namespace Prisma {
     type: $Enums.Type
     trigerWord?: string | null
     tensorPath?: string | null
+    thumbnailUrl?: string
     status?: $Enums.Status
     ethinicity: $Enums.Ethinicity
     eyeColor: $Enums.EyeColor
@@ -11792,6 +11851,7 @@ export namespace Prisma {
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
     trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
     tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
@@ -11812,6 +11872,7 @@ export namespace Prisma {
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
     trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
     tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
@@ -11831,6 +11892,7 @@ export namespace Prisma {
     type: $Enums.Type
     trigerWord?: string | null
     tensorPath?: string | null
+    thumbnailUrl?: string
     status?: $Enums.Status
     ethinicity: $Enums.Ethinicity
     eyeColor: $Enums.EyeColor
@@ -11848,6 +11910,7 @@ export namespace Prisma {
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
     trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
     tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
@@ -11866,6 +11929,7 @@ export namespace Prisma {
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
     trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
     tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
@@ -11962,40 +12026,54 @@ export namespace Prisma {
   export type PackCreateInput = {
     id: string
     name: string
+    description?: string
+    thumbnailUrl?: string
     packPrompts?: PackPromptsCreateNestedManyWithoutPackInput
   }
 
   export type PackUncheckedCreateInput = {
     id: string
     name: string
+    description?: string
+    thumbnailUrl?: string
     packPrompts?: PackPromptsUncheckedCreateNestedManyWithoutPackInput
   }
 
   export type PackUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
     packPrompts?: PackPromptsUpdateManyWithoutPackNestedInput
   }
 
   export type PackUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
     packPrompts?: PackPromptsUncheckedUpdateManyWithoutPackNestedInput
   }
 
   export type PackCreateManyInput = {
     id: string
     name: string
+    description?: string
+    thumbnailUrl?: string
   }
 
   export type PackUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
   }
 
   export type PackUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
   }
 
   export type PackPromptsCreateInput = {
@@ -12409,6 +12487,7 @@ export namespace Prisma {
     type?: SortOrder
     trigerWord?: SortOrder
     tensorPath?: SortOrder
+    thumbnailUrl?: SortOrder
     status?: SortOrder
     ethinicity?: SortOrder
     eyeColor?: SortOrder
@@ -12431,6 +12510,7 @@ export namespace Prisma {
     type?: SortOrder
     trigerWord?: SortOrder
     tensorPath?: SortOrder
+    thumbnailUrl?: SortOrder
     status?: SortOrder
     ethinicity?: SortOrder
     eyeColor?: SortOrder
@@ -12449,6 +12529,7 @@ export namespace Prisma {
     type?: SortOrder
     trigerWord?: SortOrder
     tensorPath?: SortOrder
+    thumbnailUrl?: SortOrder
     status?: SortOrder
     ethinicity?: SortOrder
     eyeColor?: SortOrder
@@ -12573,16 +12654,22 @@ export namespace Prisma {
   export type PackCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
+    thumbnailUrl?: SortOrder
   }
 
   export type PackMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
+    thumbnailUrl?: SortOrder
   }
 
   export type PackMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
+    thumbnailUrl?: SortOrder
   }
 
   export type PackScalarRelationFilter = {
@@ -13253,6 +13340,7 @@ export namespace Prisma {
     type: $Enums.Type
     trigerWord?: string | null
     tensorPath?: string | null
+    thumbnailUrl?: string
     status?: $Enums.Status
     ethinicity: $Enums.Ethinicity
     eyeColor: $Enums.EyeColor
@@ -13271,6 +13359,7 @@ export namespace Prisma {
     type: $Enums.Type
     trigerWord?: string | null
     tensorPath?: string | null
+    thumbnailUrl?: string
     status?: $Enums.Status
     ethinicity: $Enums.Ethinicity
     eyeColor: $Enums.EyeColor
@@ -13385,6 +13474,7 @@ export namespace Prisma {
     type?: EnumTypeFilter<"Model"> | $Enums.Type
     trigerWord?: StringNullableFilter<"Model"> | string | null
     tensorPath?: StringNullableFilter<"Model"> | string | null
+    thumbnailUrl?: StringFilter<"Model"> | string
     status?: EnumStatusFilter<"Model"> | $Enums.Status
     ethinicity?: EnumEthinicityFilter<"Model"> | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFilter<"Model"> | $Enums.EyeColor
@@ -13669,6 +13759,7 @@ export namespace Prisma {
     type: $Enums.Type
     trigerWord?: string | null
     tensorPath?: string | null
+    thumbnailUrl?: string
     status?: $Enums.Status
     ethinicity: $Enums.Ethinicity
     eyeColor: $Enums.EyeColor
@@ -13688,6 +13779,7 @@ export namespace Prisma {
     type: $Enums.Type
     trigerWord?: string | null
     tensorPath?: string | null
+    thumbnailUrl?: string
     status?: $Enums.Status
     ethinicity: $Enums.Ethinicity
     eyeColor: $Enums.EyeColor
@@ -13721,6 +13813,7 @@ export namespace Prisma {
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
     trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
     tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
@@ -13740,6 +13833,7 @@ export namespace Prisma {
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
     trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
     tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
@@ -13798,11 +13892,15 @@ export namespace Prisma {
   export type PackCreateWithoutPackPromptsInput = {
     id: string
     name: string
+    description?: string
+    thumbnailUrl?: string
   }
 
   export type PackUncheckedCreateWithoutPackPromptsInput = {
     id: string
     name: string
+    description?: string
+    thumbnailUrl?: string
   }
 
   export type PackCreateOrConnectWithoutPackPromptsInput = {
@@ -13824,11 +13922,15 @@ export namespace Prisma {
   export type PackUpdateWithoutPackPromptsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
   }
 
   export type PackUncheckedUpdateWithoutPackPromptsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
   }
 
   export type SessionCreateManyUserInput = {
@@ -13864,6 +13966,7 @@ export namespace Prisma {
     type: $Enums.Type
     trigerWord?: string | null
     tensorPath?: string | null
+    thumbnailUrl?: string
     status?: $Enums.Status
     ethinicity: $Enums.Ethinicity
     eyeColor: $Enums.EyeColor
@@ -13959,6 +14062,7 @@ export namespace Prisma {
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
     trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
     tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
@@ -13977,6 +14081,7 @@ export namespace Prisma {
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
     trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
     tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor
@@ -13995,6 +14100,7 @@ export namespace Prisma {
     type?: EnumTypeFieldUpdateOperationsInput | $Enums.Type
     trigerWord?: NullableStringFieldUpdateOperationsInput | string | null
     tensorPath?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     ethinicity?: EnumEthinicityFieldUpdateOperationsInput | $Enums.Ethinicity
     eyeColor?: EnumEyeColorFieldUpdateOperationsInput | $Enums.EyeColor

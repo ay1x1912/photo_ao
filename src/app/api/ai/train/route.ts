@@ -25,7 +25,8 @@ export async function POST(request:NextRequest) {
       }
     const {name,age,type,eyeColor,ethnicity,zipUrl}=parseBody.data
      //call the  model to train
-     const request_id = await falModel.trainModel(zipUrl,name);
+    //  const request_id = await falModel.trainModel(zipUrl,name);
+    const request_id="hello world"
      if(!request_id){
         throw new Error("Fal ai api called failed");
         
