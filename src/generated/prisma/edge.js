@@ -282,7 +282,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:mysecretpassword@localhost:5432/postgres?sslmode=disable"
+        "value": "postgresql://photoai_owner:npg_tXfiNT8PaCH9@ep-weathered-tree-a46noxwj-pooler.us-east-1.aws.neon.tech/photoai?sslmode=require"
       }
     }
   },
