@@ -4,6 +4,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import CameraCard from './camerCard';
+import { BACKEND_URL } from '@/lib/config';
 interface ImageProps{
   id:string,
   imageUrl:string,
@@ -19,7 +20,7 @@ function Camera() {
 
   const getImages = async ():Promise<ImageProps[] | null> => {
     try {
-      const response = await axios.get(`${process.env.BBACKEND_URL}/api/images/bulk`);
+      const response = await axios.get(`${BACKEND_URL}/api/images/bulk`);
       return response.data.images;
     } catch (error) {
       console.error('Failed to fetch images:', error);
