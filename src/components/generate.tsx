@@ -7,11 +7,12 @@ import axios from 'axios';
 import { useModel } from '@/store/useModel';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
+import { BACKEND_URL } from '@/lib/config';
 const handleOnClick=async (propmt:string,modelId:string )=>{
   
    await axios({
     method:"post",
-    url:`${process.env.BBACKEND_URL}/api/ai/generate`,
+    url:`${BACKEND_URL}/api/ai/generate`,
     data:{
         prompt:propmt,
         modelId:modelId,
