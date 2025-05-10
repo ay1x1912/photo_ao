@@ -9,6 +9,7 @@ export class FalAiModel extends baseModel{
     constructor(){
         super()
     }
+    
    async generateImages(prompt: string, tensorPath: string): Promise<string | void> {
     try{
     const { request_id ,response_url } = await fal.queue.submit("fal-ai/flux-lora", {

@@ -6,8 +6,9 @@ import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request:NextRequest) {
-    const falModel=new FalAiModel()
+  
     try{
+     const falModel=new FalAiModel()
         //check for session
      const session=await auth.api.getSession({
         headers:await headers()

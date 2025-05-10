@@ -4,10 +4,11 @@ import { GenerateImageFromPrompt } from "@/lib/schema";
 import { FalAiModel } from "@/model/falAiModel";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
- const falModel=new FalAiModel()
+ 
 export async function POST(request:NextRequest) {
     
     try{
+      const falModel=new FalAiModel()
         //authorization
      const session=await auth.api.getSession({
         headers:await headers()
