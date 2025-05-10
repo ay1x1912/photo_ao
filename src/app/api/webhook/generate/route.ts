@@ -20,7 +20,7 @@ export async function POST(request:NextRequest) {
     }
     if(status=="ERROR"){
     console.log("failed")
-
+       console.log(body);
        await  prisma.model.updateMany ({
            where:{
                falAiRequest_id:request_id  },
