@@ -4,7 +4,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from '@radix-ui/react-label'
 import { Button } from './ui/button';
 import axios from 'axios';
-import { BACKEND_URL } from '@/lib/config';
 import { useModel } from '@/store/useModel';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
@@ -12,7 +11,7 @@ const handleOnClick=async (propmt:string,modelId:string )=>{
   
    await axios({
     method:"post",
-    url:`${BACKEND_URL}/api/ai/generate`,
+    url:`${process.env.BBACKEND_URL}/api/ai/generate`,
     data:{
         prompt:propmt,
         modelId:modelId,

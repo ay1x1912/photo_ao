@@ -1,4 +1,4 @@
-import { BACKEND_URL } from '@/lib/config'
+
 import axios from 'axios'
 import React from 'react'
 import PackCard from './pack-card'
@@ -7,7 +7,7 @@ const getPacks =async() :Promise<PackInterface[]>=>{
   try{
     const response= await axios({
       method:"get",
-      url:`${BACKEND_URL}/api/pack/bulk`,
+      url:`${process.env.BBACKEND_URL}/api/pack/bulk`,
       
     })
   return response.data.packs 
