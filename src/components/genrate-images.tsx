@@ -51,8 +51,6 @@ async function GenerateImage() {
 
         </div >
         <div className='mt-10'>
-
-       
           <Generate/>
           </div>
         </div>

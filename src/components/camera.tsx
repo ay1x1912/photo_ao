@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { BACKEND_URL } from '@/lib/config';
 import axios from 'axios';
