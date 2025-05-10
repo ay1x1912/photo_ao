@@ -1,3 +1,4 @@
+import { BACKEND_URL } from "@/lib/config";
 import { baseModel } from "./baseModel";
 import { fal } from "@fal-ai/client";
 
@@ -17,7 +18,7 @@ export class FalAiModel extends baseModel{
         prompt,
         loras:[{path:tensorPath,scale:1}]
       },
-      webhookUrl: `${process.env.WEBHOOK_BASE_URL}/api/ai/generate`,
+      webhookUrl: `${BACKEND_URL}/api/webhook/generate`,
     });
     return request_id
 }
@@ -32,7 +33,7 @@ export class FalAiModel extends baseModel{
                   images_data_url: zipUrl,
                   trigger_word:triggerWord
                 },
-                webhookUrl: `${process.env.WEBHOOK_BASE_URL}/api/ai/train`,
+                webhookUrl: `${BACKEND_URL}/api/webhook/train`,
               });
               return request_id
          }
