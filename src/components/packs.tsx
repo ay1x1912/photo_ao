@@ -4,13 +4,19 @@ import React from 'react'
 import PackCard from './pack-card'
 import { cookies, headers } from 'next/headers'
 const getPacks =async() :Promise<PackInterface[]>=>{
-  const response= await axios({
-    method:"get",
-    url:`${BACKEND_URL}/api/pack/bulk`,
-    
-  })
-//   console.log(response.data.packs)
-  return response.data.packs ?? []
+  try{
+    const response= await axios({
+      method:"get",
+      url:`${BACKEND_URL}/api/pack/bulk`,
+      
+    })
+  return response.data.packs 
+
+  }catch(error){
+    console.error("Failed to fetch packs:", error)
+    return []
+  }
+//  
 }
 export  interface PackInterface{
     id :string,

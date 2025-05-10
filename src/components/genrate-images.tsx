@@ -14,18 +14,17 @@ export interface ModelInterface{
     tensorPath:string,
     thumbnailUrl:string
 }
-const getModels=async (userId:string):Promise<ModelInterface[]>=>{
-    const res=await axios({
-        method:"post",
-        url:`${BACKEND_URL}/api/model`,
-        data:{
-            userId:userId
-        },
-        
-    })
-    return res.data.models ??[]
-}
-async function GenerateImage() {
+const getModels = async (userId: string): Promise<ModelInterface[]> => {
+    try {
+      const res = await axios.post(`${BACKEND_URL}/api/model`, { userId })
+      return res.data.models ?? []
+    } catch (error) {
+      console.error("Failed to fetch models:", error)
+      return []
+    }
+  }
+  
+async function GenerateImage() { 
     const session = await auth.api.getSession({
         headers: await headers()
     })
