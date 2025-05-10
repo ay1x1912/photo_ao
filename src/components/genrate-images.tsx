@@ -5,6 +5,7 @@ import Image from 'next/image'
 import React from 'react'
 import ModelCard from './model-card'
 import Generate from './generate'
+import { BACKEND_URL } from '@/lib/config'
 
 
 export interface ModelInterface{
@@ -15,7 +16,7 @@ export interface ModelInterface{
 }
 const getModels = async (userId: string): Promise<ModelInterface[]> => {
     try {
-      const res = await axios.post(`${process.env.BBACKEND_URL}/api/model`, { userId })
+      const res = await axios.post(`${BACKEND_URL}/api/model`, { userId })
       return res.data.models ?? []
     } catch (error) {
       console.error("Failed to fetch models:", error)

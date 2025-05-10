@@ -51,7 +51,7 @@ import {
 } from "@/components/ui/file-upload"
 import axios from "axios"
 import JSZip from "jszip"
-import { ZIP_URL } from "@/lib/config"
+import { BACKEND_URL, ZIP_URL } from "@/lib/config"
 
 
 export type TrainFormState = {
@@ -100,7 +100,7 @@ const [trainBtnState,setTrainBtnState]=useState(true);
   
       await axios({
         method:"post",
-        url:`${process.env.BBACKEND_URL}/api/ai/train`,
+        url:`${BACKEND_URL}/api/ai/train`,
         data:{
           name,
           age,
@@ -126,7 +126,7 @@ const [trainBtnState,setTrainBtnState]=useState(true);
     
     const res=await axios({
       method:"get",
-      url:`${process.env.BBACKEND_URL}/api/presign`,
+      url:`${BACKEND_URL}/api/presign`,
     })
     const preSignedurl=res.data.url;
     const key=res.data.key
