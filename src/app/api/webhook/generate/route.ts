@@ -30,7 +30,7 @@ export async function POST(request:NextRequest) {
            }
    
     })
-       return NextResponse.json({error:body.paylodad.detail.msg},{status:400})
+       return NextResponse.json({error:body.paylodad},{status:400})
     
    }
        
