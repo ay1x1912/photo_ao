@@ -6,6 +6,7 @@ export async function POST(request:NextRequest) {
     const {request_id,status}=body;
     console.log("route hit")
     if(status=="OK"){
+        console.log(body);
        await  prisma.outputImage.updateMany({
            where:{
                falAiRequest_id:request_id },
