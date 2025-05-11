@@ -5,8 +5,18 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Camera from '@/components/camera'
 import GenerateImage from '@/components/genrate-images'
 import Packs from '@/components/packs'
+import { useSession } from '@/lib/auth-client'
+import { redirect, useRouter } from 'next/navigation'
+import { auth } from '@/lib/auth'
+import { headers } from 'next/headers'
 
-function DasboardPage() {
+ async function DasboardPage() {
+   const session= await auth.api.getSession({
+    headers: await headers()
+   })
+     if (!session?.user) {
+    redirect('/signin') // ✅ Server-side redirect
+  }
     return (
         <div className=' flex w-scree border  px-30 '>
        <Tabs defaultValue="Camera" className='border w-full '>

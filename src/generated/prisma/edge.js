@@ -282,7 +282,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://photoai_owner:npg_tXfiNT8PaCH9@ep-weathered-tree-a46noxwj-pooler.us-east-1.aws.neon.tech/photoai?sslmode=require"
+        "value": "postgresql://devmode_owner:npg_5vNqCQiVR3Hl@ep-long-cloud-a1c1v3qf-pooler.ap-southeast-1.aws.neon.tech/devmode?sslmode=require"
       }
     }
   },

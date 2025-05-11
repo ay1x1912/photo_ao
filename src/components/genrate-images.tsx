@@ -16,8 +16,14 @@ export interface ModelInterface{
 }
 const getModels = async (userId: string): Promise<ModelInterface[]> => {
     try {
-      const res = await axios.post(`${BACKEND_URL}/api/model`, { userId })
-      return res.data.models ?? []
+      const res=await axios({
+        method:"post",
+        url:`${BACKEND_URL}/api/model`,
+        data:{
+          userId
+        }
+      })
+      return res.data.models
     } catch (error) {
       console.error("Failed to fetch models:", error)
       return []
