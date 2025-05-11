@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
         port:"",
         pathname:"**"
       },
+       {
+        protocol:"https",
+        hostname:"v3.fal.media",
+        port:"",
+        pathname:"**"
+      },
       {
         protocol:"https",
         hostname:"media.licdn.com",

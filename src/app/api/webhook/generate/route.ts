@@ -6,15 +6,12 @@ export async function POST(request:NextRequest) {
     const {request_id,status}=body;
     console.log("route hit")
     if(status=="OK"){
-        console.log(body);
-        console.log(body.payload.images[0])
        await  prisma.outputImage.updateMany({
            where:{
                falAiRequest_id:request_id },
            data:{
                status:"Success",
-              
-   
+               imageUrl:body.payload.images[0].url
            }
        })
        return NextResponse.json({msg:"Generated successfuly"})
