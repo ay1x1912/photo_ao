@@ -7,13 +7,13 @@ export async function POST(request:NextRequest) {
     console.log("route hit")
     if(status=="OK"){
         console.log(body);
+        console.log(body.payload.images[0])
        await  prisma.outputImage.updateMany({
            where:{
                falAiRequest_id:request_id },
            data:{
                status:"Success",
-               imageUrl:body.paylodad.images.url
-               
+              
    
            }
        })
