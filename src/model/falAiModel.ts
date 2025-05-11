@@ -21,6 +21,7 @@ export class FalAiModel extends baseModel{
       webhookUrl: `${BACKEND_URL}/api/webhook/generate`,
     });
     return request_id
+    console.log(request_id);
 }
     catch(error){
         console.log('Error during generating image',error)
