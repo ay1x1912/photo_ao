@@ -13,15 +13,15 @@ export class FalAiModel extends baseModel{
     
    async generateImages(prompt: string, tensorPath: string): Promise<string | void> {
     try{
-    const { request_id ,response_url } = await fal.queue.submit("fal-ai/flux-lora", {
+    const { request_id } = await fal.queue.submit("fal-ai/flux-lora", {
       input: {
         prompt,
         loras:[{path:tensorPath,scale:1}]
       },
       webhookUrl: `${BACKEND_URL}/api/webhook/generate`,
     });
-    return request_id
     console.log(request_id);
+    return request_id
 }
     catch(error){
         console.log('Error during generating image',error)
