@@ -1,9 +1,16 @@
 import React from 'react'
 import { Button } from './ui/button'
 import Link from 'next/link'
+import { auth } from '@/lib/auth'
+import { headers } from 'next/headers'
+import SignOut from './auth/sign-out-button'
 
 
-function NavBar() {
+async function NavBar() {
+    const session=await auth.api.getSession({
+        headers:await headers()
+    })
+
     return (
        <section className='border  w-full p-2 mt-4'>
         <div className="container mx-auto rounded-full p-4 bg-blue-400 flex items-center justify-between">
@@ -21,6 +28,7 @@ function NavBar() {
                <Link href={'/dashboard'}>
                <Button>Credits</Button>
                </Link>
+                {session?.user && <SignOut/>}
             </div>
 
         </div>

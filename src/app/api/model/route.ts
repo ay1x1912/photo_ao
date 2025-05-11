@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
     const body = await request.json();
-
+   console.log(body);
     if (!body.userId) {
         return NextResponse.json({ msg: "user id not provided" }, { status: 400 });
     }
@@ -13,6 +13,7 @@ export async function POST(request: NextRequest) {
             id: body.userId
         }
     });
+    console.log(models);
 
     return NextResponse.json({ models });
 }
