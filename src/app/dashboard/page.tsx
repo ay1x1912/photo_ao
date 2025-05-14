@@ -1,25 +1,19 @@
 
+import { redirect } from 'next/navigation'
+import { auth } from '@/lib/auth'
+import { headers } from 'next/headers'
 import MyForm from '@/components/trainForm'
 import React from 'react'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Camera from '@/components/camera'
 import GenerateImage from '@/components/genrate-images'
 import Packs from '@/components/packs'
-import { useSession } from '@/lib/auth-client'
-import { redirect, useRouter } from 'next/navigation'
-import { auth } from '@/lib/auth'
-import { headers } from 'next/headers'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
  async function DasboardPage() {
-   const session= await auth.api.getSession({
-    headers: await headers()
-   })
-     if (!session?.user) {
-    redirect('/signin') // ✅ Server-side redirect
-  }
+     
     return (
         <div className=' flex w-scre    px-30 pt-10 '>
-       <Tabs defaultValue="Camera" className=' w-full flex justify-center items-center '>
+                <Tabs    defaultValue="Camera" className=' w-full flex justify-center items-center '>
        <TabsList  className="p-8 mt-2  flex gap-4 ">
       <TabsTrigger className='' value="Camera">Camera</TabsTrigger>
      <TabsTrigger value="Generated Images">Generated Images</TabsTrigger>
@@ -31,6 +25,8 @@ import { headers } from 'next/headers'
    <TabsContent className='w-full' value="Packs"><Packs/></TabsContent>
    <TabsContent className='w-full' value="Train Model"><MyForm/></TabsContent>
    </Tabs>
+            
+        
     </div>
     )
 }

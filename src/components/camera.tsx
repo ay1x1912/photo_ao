@@ -4,10 +4,11 @@
 import axios from 'axios';
 import { BACKEND_URL } from '@/lib/config';
 import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { Skeleton } from './ui/skeleton';
 import Image from 'next/image';
+import { toast } from 'sonner';
 
 interface ImageProps{
   model:{
@@ -24,32 +25,30 @@ enum Status{
 }
  
 
-  const getImages = async (userId:string):Promise<ImageProps[] | null> => {
+  const getImages = async (cookieHeader:string):Promise<ImageProps[] | null> => {
     try {
       const response = await axios({
-        method:"post",
+        method:"get",
         url:`${BACKEND_URL}/api/images/bulk`,
-        data:{
-           userId
-        }
+         headers: {
+      Cookie: cookieHeader,
+    },
       })
       return response.data.images;
     } catch (error) {
       console.error('Failed to fetch images:', error);
+      toast(
+        <div >  
+          <h1>Error</h1>
+          <p> Failed to Fetch images</p>
+        </div>
+        )
       return null;
     }
   };
 async function Camera() {
-  
-  const sesssion= await auth.api.getSession(({
-    headers: await headers()
-  }))
-  if(!sesssion?.user){
-    redirect('/singn')
-    return
-    
-  }
- const images= await getImages(sesssion?.user.id)
+  const cookieHeader = cookies().toString();
+ const images= await getImages(cookieHeader)
 
  
 

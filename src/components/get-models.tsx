@@ -1,7 +1,7 @@
 import { auth } from '@/lib/auth'
 import { BACKEND_URL } from '@/lib/config'
 import axios from 'axios'
-import { headers } from 'next/headers'
+import { cookies, headers } from 'next/headers'
 import React from 'react'
 import { toast } from 'sonner'
 import ModelCard from './model-card'
@@ -13,30 +13,24 @@ export interface ModelInterface{
     tensorPath:string,
     thumbnailUrl:string
 }
-const getModels = async (userId: string): Promise<ModelInterface[]> => {
+const getModels = async (cookieHeader: string): Promise<ModelInterface[]> => {
     try {
       const res=await axios({
-        method:"post",
+        method:"get",
         url:`${BACKEND_URL}/api/model`,
-        data:{
-          userId
+        headers:{
+          Cookie:cookieHeader
         }
       })
       return res.data.models
     } catch (error) {
-      toast.error("Failed to get models")
       return []
     }
   }
 async function GetModels() {
-        const session = await auth.api.getSession({
-            headers: await headers()
-        })
-        if(!session) {
-            return <div>Not authenticated</div>
-        }
-        const {id}=session.user;
-        const models=await getModels(id);
+  const cookieHeader = (await cookies()).toString()
+        
+        const models=await getModels(cookieHeader);
     return (
        
           <div>
