@@ -162,7 +162,7 @@ const [trainBtnState,setTrainBtnState]=useState(true);
   }
 
   return (
-    <div className="border">
+    <div className="bg-gray-50 py-10 md:py-20 dark:bg-transparent">
 
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-3xl mx-auto py-4">

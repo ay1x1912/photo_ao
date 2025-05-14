@@ -9,7 +9,7 @@ import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import { BACKEND_URL } from '@/lib/config';
 const handleOnClick=async (propmt:string,modelId:string )=>{
-  
+  try{
    await axios({
     method:"post",
     url:`${BACKEND_URL}/api/ai/generate`,
@@ -20,8 +20,12 @@ const handleOnClick=async (propmt:string,modelId:string )=>{
     }
 
     
-})
+})               
+toast("call successful your image will be generated in while")
 
+}catch(error){
+    toast.error(`Backend called failed with :${error}`)
+}
 
    
 }
@@ -31,22 +35,30 @@ function Generate() {
     const router=useRouter()
     const modelId=useModel((state)=>state.modelId)
     return (
-        <div>
-             {JSON.stringify(modelId)}
+        <div className='flex flex-col gap-4'>
             <Label htmlFor='text'>Enter your propmt</Label>
             <Textarea id='text' onChange={(e)=>setPrompt(e.target.value)} />
-            <Button onClick={ async()=> {
-                  if(!prompt || !modelId){
-                    toast("Prompt or Model missing")
+             <div className='flex justify-end items-center'>
+            
+            <Button 
+            className='w-40 h-15 rounded-lg p-4 '
+            onClick={ async()=> {
+                  if(!prompt){
+                    toast("Prompt is missing")
+                    return
+                }
+                if(!modelId){
+                    toast("Select a model")
                     return
                 }
                 await handleOnClick(prompt,modelId!)
                 setModel('')
                 setPrompt(" ")
-                toast("call successful your image will be generated in while")
+                router.push('/dashboard')
             }}>
              Generate Images
             </Button>
+            </div>
         </div>
     )
 }

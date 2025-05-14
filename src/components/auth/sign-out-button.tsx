@@ -8,6 +8,8 @@ const SignOut = () => {
     const router = useRouter()
   return (
     <Button
+     variant="outline"
+     size="sm"
     onClick={async() => {await signOut({
       fetchOptions: {
         onSuccess: () => {

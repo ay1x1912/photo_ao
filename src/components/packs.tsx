@@ -1,25 +1,25 @@
 
-import axios from 'axios'
 import React from 'react'
-import PackCard from './pack-card'
-import { cookies, headers } from 'next/headers'
-import { BACKEND_URL } from '@/lib/config'
-const getPacks =async() :Promise<PackInterface[]>=>{
-  console.log(BACKEND_URL)
-  try{
-    const response= await axios({
-      method:"get",
-      url:`${BACKEND_URL}/api/pack/bulk`,
-      
-    })
-  return response.data.packs 
+ import valentineThumbNail from "../../public/valentineThumbNail.png"
+ import airplaneThumNail from "../../public/airplaneThumbNail.png"
+import { AuthorCard } from './ui/content-card'
+import GetModels from './get-models'
+import GeneratFromPack from './generate-from-pack-button'
 
-  }catch(error){
-    console.error("Failed to fetch packs:", error)
-    return []
+const packs=[
+  {
+    id:"1",
+    name :'Valentine Pack',
+    description:'Propmts for a person on valentine',
+    thumbnailUrl:`${valentineThumbNail.src}`
+  },
+  {
+    id:"2",
+    name :'Airplane Pack',
+    description:'Propmts for a person on an airplane',
+    thumbnailUrl:`${airplaneThumNail.src}`
   }
-//  
-}
+]
 export  interface PackInterface{
     id :string,
     name :string,
@@ -27,12 +27,39 @@ export  interface PackInterface{
     thumbnailUrl:string
   }
 async function Packs() {
-    const packs =await getPacks()
+  
+
     return (
-        <div className=' flex gap-x-4 p-4'>
-            
-          {packs.map((pack)=><PackCard key={pack.id} name={pack.name} thumbnailUrl={pack.thumbnailUrl} description={pack.description}/>)}
+      <div >
+        <h1 className='text-center text-2xl font-semibold'>Select a pack</h1>
+     
+        <div 
+        className=' flex gap-x-4 p-4'
+     
+        >
+          {
+            packs.map((pack)=>(
+              <AuthorCard 
+              id={pack.id}
+              key={pack.id}
+              backgroundImage={pack.thumbnailUrl}
+              content={{
+                title:pack.name,
+                description:pack.description
+              }}
+
+              />
+            ))
+          }
+           </div>
+        <div>
+          <GetModels/>
         </div>
+        <div>
+        <GeneratFromPack/>
+        </div>
+
+         </div>
     )
 }
 

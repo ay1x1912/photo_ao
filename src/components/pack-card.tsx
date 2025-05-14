@@ -6,8 +6,9 @@ import {
     CarouselNext,
     CarouselPrevious,
   } from "@/components/ui/carousel"
-  
-import Image from 'next/image'
+
+
+import Image, { StaticImageData } from 'next/image'
 import { Button } from './ui/button'
   
  export  interface PackCardProps{
@@ -17,12 +18,13 @@ import { Button } from './ui/button'
   }
   function PackCard(props: PackCardProps) {
     const { name, description, thumbnailUrl } = props;
-
+  
     return (
         <div className="rounded-lg border shadow-md w-[350px] flex flex-col overflow-hidden">
+            {JSON.stringify(thumbnailUrl)}
             <div className="relative w-full h-[400px]">
                 <Image
-                    src={thumbnailUrl}
+                    src={`/${thumbnailUrl}`}
                     alt={name}
                     fill
                     className="object-cover rounded-t-lg"

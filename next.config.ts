@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
     remotePatterns:[
       {
         protocol:"https",
-        hostname:"photo.100xdevs.com",
+        hostname:"sdmntprcentralus.oaiusercontent.com",
         port:"",
         pathname:"**"
       },

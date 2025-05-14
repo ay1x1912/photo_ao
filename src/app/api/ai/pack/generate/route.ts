@@ -18,7 +18,9 @@ export async function POST(request:NextRequest) {
                 })}
           //check for body
         const body= await request.json()
+        console.log(body);
         const parseBody=GenerateImageFromPack.safeParse(body);
+        console.log(parseBody.error)
         if(!parseBody.success){
         return NextResponse.json({msg:"Incorrect Input"},{status:411})
             
