@@ -50,7 +50,7 @@ const router=useRouter()
                  await handleOnClick(modelId,packId)
                     setModel('')
                     setPackId(" ")
-                    router.push('/dashboard')
+                    router.refresh()
             }}>
             Generate
         </Button>

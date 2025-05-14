@@ -54,7 +54,7 @@ function Generate() {
                 await handleOnClick(prompt,modelId!)
                 setModel('')
                 setPrompt(" ")
-                router.push('/dashboard')
+                router.refresh()
             }}>
              Generate Images
             </Button>
