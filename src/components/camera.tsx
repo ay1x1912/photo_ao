@@ -47,7 +47,8 @@ enum Status{
     }
   };
 async function Camera() {
-  const cookieHeader = cookies().toString();
+  const cookieHeader = (await cookies()).toString()
+  
  const images= await getImages(cookieHeader)
 
  

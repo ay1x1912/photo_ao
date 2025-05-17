@@ -4,7 +4,7 @@ import {
     betterAuth
 } from 'better-auth';
 import { prismaAdapter } from 'better-auth/adapters/prisma';
-import { polar } from "@polar-sh/better-auth";
+import { checkout, polar, portal, usage, webhooks } from "@polar-sh/better-auth";
 import { Polar } from "@polar-sh/sdk";
 const client = new Polar({
     accessToken: process.env.POLAR_ACCESS_TOKEN,
@@ -25,33 +25,26 @@ export const auth = betterAuth({
         minPasswordLength: 8,
         maxPasswordLength: 20,
     },
-    plugins: [
+     plugins: [
         polar({
             client,
-            // Enable automatic Polar Customer creation on signup
             createCustomerOnSignUp: true,
-            // Enable customer portal
-            enableCustomerPortal: true, // Deployed under /portal for authenticated users
-            // Configure checkout
-            checkout: {
-                enabled: true,
-                products: [
-                    {
-                        productId: process.env.BASIC_PRODUCT_ID!,
-                        slug: "basic" 
-                    },
-                     {
-                        productId: process.env.PREMIUM_PRODUCT_ID!, 
-                        slug: "premium" 
-                    }
-                ],
-                successUrl: "/success?checkout_id={CHECKOUT_ID}",
-                authenticatedUsersOnly: true
-            },
-            // Incoming Webhooks handler will be installed at /polar/webhooks
-            webhooks: {
-                secret: process.env.POLAR_WEBHOOK_SECRET! ,
-           onPayload: async (payload) => {
+            use: [
+                checkout({
+                    products: [
+                        {
+                            productId: "123-456-789", // ID of Product from Polar Dashboard
+                            slug: "pro" // Custom slug for easy reference in Checkout URL, e.g. /checkout/pro
+                        }
+                    ],
+                    successUrl: "/success?checkout_id={CHECKOUT_ID}",
+                    authenticatedUsersOnly: true
+                }),
+                portal(),
+                usage(),
+                webhooks({
+                    secret: process.env.POLAR_WEBHOOK_SECRET!,
+                    onPayload: async (payload) => {
 		// Handle the event
 		switch (payload.type) {
 			// Checkout has been created
@@ -159,8 +152,17 @@ export const auth = betterAuth({
 				console.log(`Unhandled event type ${payload.type}`);
 		}
 	}
-                
-            }
+                })
+            ],
         })
     ]
 });
+
+
+
+
+
+
+
+
+           
