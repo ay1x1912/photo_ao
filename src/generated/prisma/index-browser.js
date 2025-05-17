@@ -176,7 +176,6 @@ exports.Prisma.ModelScalarFieldEnum = {
   type: 'type',
   trigerWord: 'trigerWord',
   tensorPath: 'tensorPath',
-  thumbnailUrl: 'thumbnailUrl',
   status: 'status',
   ethinicity: 'ethinicity',
   eyeColor: 'eyeColor',
@@ -184,7 +183,8 @@ exports.Prisma.ModelScalarFieldEnum = {
   falAiRequest_id: 'falAiRequest_id',
   zipUrl: 'zipUrl',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  thumbnailUrl: 'thumbnailUrl'
 };
 
 exports.Prisma.OutputImageScalarFieldEnum = {
@@ -210,6 +210,27 @@ exports.Prisma.PackPromptsScalarFieldEnum = {
   id: 'id',
   prompt: 'prompt',
   packId: 'packId'
+};
+
+exports.Prisma.UserCreditScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  amount: 'amount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TransactionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  amount: 'amount',
+  currency: 'currency',
+  paymentId: 'paymentId',
+  orderId: 'orderId',
+  plan: 'plan',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  status: 'status'
 };
 
 exports.Prisma.SortOrder = {
@@ -257,6 +278,18 @@ exports.EyeColor = exports.$Enums.EyeColor = {
   Gray: 'Gray'
 };
 
+exports.PlanType = exports.$Enums.PlanType = {
+  basic: 'basic',
+  premium: 'premium'
+};
+
+exports.TransactionStatusType = exports.$Enums.TransactionStatusType = {
+  pending: 'pending',
+  paid: 'paid',
+  refunded: 'refunded',
+  partially_refunded: 'partially_refunded'
+};
+
 exports.Prisma.ModelName = {
   User: 'User',
   Session: 'Session',
@@ -265,7 +298,9 @@ exports.Prisma.ModelName = {
   Model: 'Model',
   OutputImage: 'OutputImage',
   Pack: 'Pack',
-  PackPrompts: 'PackPrompts'
+  PackPrompts: 'PackPrompts',
+  UserCredit: 'UserCredit',
+  Transaction: 'Transaction'
 };
 
 /**
